@@ -1,11 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/images/logo.svg";
+import logo from "@/public/images/MisbahLogo.png";
 
-export default function Logo() {
+type LogoProps = {
+  className?: string;
+};
+
+export default function Logo({ className }: LogoProps) {
   return (
     <Link href="/" className="inline-flex shrink-0" aria-label="Cruip">
-      <Image src={logo} alt="Cruip Logo" width={32} height={32} />
+      <Image src={logo} alt="Cruip Logo" width={175} height={32} />
     </Link>
   );
 }
