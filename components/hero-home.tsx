@@ -1,5 +1,14 @@
+'use client';
+
+import { Slide } from "react-slideshow-image";
 import VideoThumb from "@/public/images/hero-image-01.jpg";
 import ModalVideo from "@/components/modal-video";
+
+const images = [
+  "/images/hero-image-01.jpg",
+  "/images/Marquee/20.jpg",
+  "/images/hero-image-02.jpg",
+]
 
 export default function HeroHome() {
   return (
@@ -51,7 +60,7 @@ export default function HeroHome() {
             </div>
           </div>
 
-          <ModalVideo
+          {/* <ModalVideo
             thumb={VideoThumb}
             thumbWidth={1104}
             thumbHeight={576}
@@ -59,7 +68,31 @@ export default function HeroHome() {
             video="videos//video.mp4"
             videoWidth={1920}
             videoHeight={1080}
-          />
+          /> */}
+
+<div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-lg">
+            <Slide
+              duration={4000} // Time per slide (4s)
+              transitionDuration={700} // Smooth transition (0.7s)
+              autoplay={true} // Auto slide enabled
+              infinite={true} // Loop slides infinitely
+              indicators={true} // Show dots below slider
+              arrows={true} // Enable next/prev arrows
+            >
+              {images.map((src, index) => (
+                <div key={index} className="relative w-full h-[500px]">
+                  <Image
+                    src={src}
+                    alt={`Slide ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                    priority={index === 0} // Prioritize the first image
+                  />
+                </div>
+              ))}
+            </Slide>
+          </div>
         </div>
       </div>
     </section>
