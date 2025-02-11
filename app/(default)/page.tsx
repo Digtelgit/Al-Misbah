@@ -9,6 +9,7 @@ import Gallery from "@/components/gallery";
 import Marquee from "@/components/marquee";
 import Image from "next/image";
 import Header from "@/components/ui/header";
+import Timeline from "@/components/ProcessSteps";
 
 export const metadata = {
   title: "Al Misbah - Home",
@@ -67,7 +68,8 @@ const Home: FC = () => {
         <Hero />
       </section>
       <section id="workflows">
-        <Workflows />
+        {/* <Workflows /> */}
+        <Timeline />
       </section>
       <section id="services">
       <Features />

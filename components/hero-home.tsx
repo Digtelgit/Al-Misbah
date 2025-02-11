@@ -1,93 +1,77 @@
-'use client';
+"use client";
 
 import { Slide } from "react-slideshow-image";
-import VideoThumb from "@/public/images/hero-image-01.jpg";
-import ModalVideo from "@/components/modal-video";
+import Image from "next/image";
+import "react-slideshow-image/dist/styles.css";
 
 const images = [
   "/images/hero-image-01.jpg",
   "/images/Marquee/20.jpg",
   "/images/hero-image-02.jpg",
-]
+];
 
 export default function HeroHome() {
   return (
-    <section>
+    <section className="bg-gradient-to-b from-gray-50 to-white text-gray-900">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Hero content */}
+        {/* Hero Content */}
         <div className="py-12 md:py-20">
-          {/* Section header */}
+          {/* Section Header */}
           <div className="pb-12 text-center md:pb-20">
             <h1
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl"
+              className="bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 bg-clip-text text-transparent text-4xl md:text-5xl font-semibold"
               data-aos="fade-up"
             >
               Turnkey Solutions for the Built Environment
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mb-8 text-xl text-indigo-200/65"
+                className="mt-4 text-lg text-gray-700 md:text-xl"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                We specialize in creating thoughtfully designed spaces that
-                foster creativity, productivity, and success, tailored to meet
-                the unique needs of every client.
+                We specialize in creating thoughtfully designed spaces that foster
+                creativity, productivity, and success—tailored to meet every client’s needs.
               </p>
-              <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-                <div data-aos="fade-up" data-aos-delay={400}>
-                  <a
-                    className="btn group mb-4 w-full bg-gradient-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#services"
-                  >
-                    <span className="relative inline-flex items-center">
-                      Start Building Your Dream Space
-                      <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
-                        -&gt;
-                      </span>
-                    </span>
-                  </a>
-                </div>
-                <div data-aos="fade-up" data-aos-delay={600}>
-                  <a
-                    className="btn relative w-full bg-gradient-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,theme(colors.gray.800),theme(colors.gray.700),theme(colors.gray.800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
-                    href="/contact"
-                  >
-                    Contact Us
-                  </a>
-                </div>
+              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <a
+                  className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition-all text-white font-medium rounded-lg shadow-lg"
+                  href="#services"
+                  data-aos="fade-up"
+                  data-aos-delay={400}
+                >
+                  Start Your Project →
+                </a>
+                <a
+                  className="px-6 py-3 bg-gray-200 hover:bg-gray-300 transition-all text-gray-900 font-medium rounded-lg shadow-md"
+                  href="/contact"
+                  data-aos="fade-up"
+                  data-aos-delay={600}
+                >
+                  Contact Us
+                </a>
               </div>
             </div>
           </div>
 
-          {/* <ModalVideo
-            thumb={VideoThumb}
-            thumbWidth={1104}
-            thumbHeight={576}
-            thumbAlt="Modal video thumbnail"
-            video="videos//video.mp4"
-            videoWidth={1920}
-            videoHeight={1080}
-          /> */}
-
-<div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-lg">
+          {/* Image Slider */}
+          <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-2xl">
             <Slide
-              duration={4000} // Time per slide (4s)
+              duration={5000} // Slower transitions (5s)
               transitionDuration={700} // Smooth transition (0.7s)
-              autoplay={true} // Auto slide enabled
-              infinite={true} // Loop slides infinitely
-              indicators={true} // Show dots below slider
-              arrows={true} // Enable next/prev arrows
+              autoplay
+              infinite
+              indicators
+              arrows
             >
               {images.map((src, index) => (
                 <div key={index} className="relative w-full h-[500px]">
                   <Image
                     src={src}
                     alt={`Slide ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
-                    priority={index === 0} // Prioritize the first image
+                    fill
+                    className="rounded-xl object-cover"
+                    priority={index === 0} // Prioritize first image
                   />
                 </div>
               ))}
