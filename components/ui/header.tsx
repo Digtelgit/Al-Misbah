@@ -20,10 +20,10 @@ export default function Header() {
   return (
     <header className="z-30 w-full bg-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-14 items-center justify-between rounded-2xl bg-white px-3">
+        <div className="relative flex h-20 items-center justify-between rounded-2xl bg-white px-6 shadow-sm">
           {/* Site branding */}
           <div className="flex items-center">
-            <Logo className="h-8 w-auto" />
+            <Logo className="h-10 w-auto" />
           </div>
 
           {/* Hamburger Menu for Mobile and Desktop */}
@@ -32,12 +32,12 @@ export default function Header() {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
-            style={{ position: "relative", zIndex: 1 }}
+            style={{ position: "relative", zIndex: 50 }}
           >
             {menuOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-8 w-8"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -52,7 +52,7 @@ export default function Header() {
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-8 w-8"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -69,15 +69,15 @@ export default function Header() {
 
           {/* Mobile Navigation Links */}
           <ul
-            className={`absolute top-0 left-0 z-50 w-full transform bg-white p-4 transition-all duration-300 ${
+            className={`absolute top-0 left-0 z-40 w-full transform bg-white p-6 transition-all duration-300 ${
               menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
             }`}
-            style={{ maxHeight: "100vh", paddingTop: "40px" }}
+            style={{ maxHeight: "100vh", paddingTop: "80px" }}
           >
             <li>
               <Link
                 href="#workflows"
-                className="block py-2 text-sm text-gray-900 hover:text-indigo-500 transition-colors"
+                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 Our Companies
@@ -86,7 +86,7 @@ export default function Header() {
             <li>
               <Link
                 href="#about"
-                className="block py-2 text-sm text-gray-900 hover:text-indigo-500 transition-colors"
+                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 About Us
@@ -95,7 +95,7 @@ export default function Header() {
             <li>
               <Link
                 href="#services"
-                className="block py-2 text-sm text-gray-900 hover:text-indigo-500 transition-colors"
+                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 Services
@@ -104,7 +104,7 @@ export default function Header() {
             <li>
               <Link
                 href="#gallery"
-                className="block py-2 text-sm text-gray-900 hover:text-indigo-500 transition-colors"
+                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 Project Gallery
@@ -113,7 +113,7 @@ export default function Header() {
             <li>
               <Link
                 href="/contact"
-                className="block py-2 text-sm text-gray-900 hover:text-indigo-500 transition-colors"
+                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 Contact Us

@@ -89,55 +89,55 @@ const Home: FC = () => {
       >
         <div className="flex items-center justify-center space-x-4">
           <Image
-            src="/images/Marquee/1.jpg"
+            src="/images/Marquee/11.png"
             width={200}
             height={100}
             alt="Marquee 1"
           />
           <Image
-            src="/images/Marquee/2.jpg"
+            src="/images/Marquee/222.png"
             width={200}
             height={100}
             alt="Marquee 2"
           />
           <Image
-            src="/images/Marquee/20.jpg"
+            src="/images/Marquee/2020.png"
             width={200}
             height={100}
             alt="Marquee 3"
           />
           <Image
-            src="/images/Marquee/21.jpg"
+            src="/images/Marquee/2121.png"
             width={200}
             height={100}
             alt="Marquee 4"
           />
           <Image
-            src="/images/Marquee/22.jpg"
+            src="/images/Marquee/2222.png"
             width={200}
             height={100}
             alt="Marquee 5"
           />
           <Image
-            src="/images/Marquee/23.jpg"
+            src="/images/Marquee/2323.png"
             width={200}
             height={100}
             alt="Marquee 6"
           />
           <Image
-            src="/images/Marquee/24.jpg"
+            src="/images/Marquee/2424.png"
             width={200}
             height={100}
             alt="Marquee 7"
           />
           <Image
-            src="/images/Marquee/25.jpg"
+            src="/images/Marquee/2525.png"
             width={200}
             height={100}
             alt="Marquee 8"
           />
           <Image
-            src="/images/Marquee/26.jpg"
+            src="/images/Marquee/2626.png"
             width={200}
             height={100}
             alt="Marquee 9"

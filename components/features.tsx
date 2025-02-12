@@ -1,11 +1,36 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 import OurServicesImage from "@/public/images/OurServices.jpg";
 
 export default function Features() {
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Delay between child animations
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <section className="relative">
+    <motion.section
+      className="relative"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }} // Trigger animation once
+      variants={containerVariants}
+    >
+      {/* Blurred shapes */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 -z-10 -mt-20 -translate-x-1/2"
         aria-hidden="true"
@@ -30,10 +55,15 @@ export default function Features() {
           alt="Blurred shape"
         />
       </div>
+
+      {/* Main content */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,theme(colors.slate.400/.25),transparent)1] md:py-20">
           {/* Section header */}
-          <div className="mx-auto max-w-3xl pb-4 text-center md:pb-12">
+          <motion.div
+            className="mx-auto max-w-3xl pb-4 text-center md:pb-12"
+            variants={childVariants}
+          >
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
               <span className="inline-flex bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
                 Our Expertise
@@ -46,8 +76,13 @@ export default function Features() {
               We are a group of companies excelling in interior design, decor,
               and spatial transformation services.
             </p>
-          </div>
-          <div className="flex justify-center pb-4 md:pb-12" data-aos="fade-up">
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            className="flex justify-center pb-4 md:pb-12"
+            variants={childVariants}
+          >
             <Image
               className="rounded-lg object-cover"
               src={OurServicesImage}
@@ -56,18 +91,24 @@ export default function Features() {
               alt="Our Services"
               priority
             />
-          </div>
-          {/* Items */}
-          <div className="mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-3">
-          
-            <article className="flex items-start gap-4">
+          </motion.div>
+
+          {/* Items grid */}
+          <motion.div
+            className="mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-3"
+            variants={containerVariants}
+          >
+            {/* Commercial Spaces */}
+            <motion.article
+              className="flex items-start gap-4"
+              variants={childVariants}
+            >
               <svg
                 id="Layer_1"
-               
                 viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g >
+                <g>
                   <path d="m48.8 79.68h154.4v342.89h-154.4z" fill="#cad0d7" />
                   <path d="m30.45 60.9h192.41v28.78h-192.41z" fill="#444c4c" />
                   <path d="m92.18 319.25h67.36v93.32h-67.36z" fill="#6cb2e8" />
@@ -101,9 +142,13 @@ export default function Features() {
                   creativity and productivity.
                 </p>
               </div>
-            </article>
-          
-            <article className="flex items-start gap-4">
+            </motion.article>
+
+            {/* Turnkey Solutions */}
+            <motion.article
+              className="flex items-start gap-4"
+              variants={childVariants}
+            >
               <svg
                 id="Layer_1"
                 viewBox="0 0 512 512"
@@ -161,31 +206,35 @@ export default function Features() {
                 <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
                   Turnkey Solutions
                 </h3>
-
                 <p className="text-indigo-200/65">
                   Providing end-to-end solutions from design to execution for
                   hassle-free project completion.
                 </p>
               </div>
-            </article>
-            <article className="flex items-start gap-4">
+            </motion.article>
+
+            {/* Custom Furniture */}
+            <motion.article
+              className="flex items-start gap-4"
+              variants={childVariants}
+            >
               <svg
                
               
              
                
              
-                viewBox="0 0 2667 2667"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="Layer_x0020_1">
-                  <circle cx="1333" cy="1333" fill="#f44c71" r="1333" />
-                  <path
-                    d="m2078 1421h-1489c-60 0-109-49-109-109s49-109 109-109h1489c60 0 109 49 109 109s-49 109-109 109zm-1156-762v-34c0-60 48-108 108-108h607c59 0 108 48 108 108v34zm637 443c10 0 19-8 19-18v-42c0-13 10-23 23-23s23 10 23 23v42c0 28-17 51-42 61v31h-498v-31c-24-10-42-33-42-61v-42c0-13 11-23 24-23s23 10 23 23v42c0 10 8 18 19 18zm247-201h-945c-13 0-23-10-23-23v-84c0-60 48-108 107-108h776c60 0 108 48 108 108v84c0 13-10 23-23 23zm241 911v314c0 13-10 24-23 24h-691c-13 0-23-11-23-24v-314zm-764 338h-640c-13 0-23-11-23-24v-679h663zm-543-375v256c0 9 8 16 17 16h389c9 0 17-7 17-16v-256c0-9-8-16-17-16h-389c-9 0-17 7-17 16zm283 103c4 0 7-1 9-4l45-41c5-5 6-14 1-19-17-18-45 31-60 37h-2-131l-41-38c-13-12-31 8-18 20 9 8 43 45 54 45zm-309-103c0-24 19-43 43-43h389c24 0 43 19 43 43v256c0 24-19 43-43 43h-389c-24 0-43-19-43-43zm399-110c42 0 77-34 77-76s-35-76-77-76-76 34-76 76 34 76 76 76zm0-125c66 0 66 99 0 99-65 0-65-99 0-99zm-323 125c42 0 76-34 76-76s-35-76-76-76c-42 0-77 34-77 76s34 76 77 76zm0-125c65 0 65 99 0 99-66 0-66-99 0-99zm520-93h737v338h-737zm530 183c7 0 13-6 13-14 0-7-6-13-13-13h-322c-8 0-13 6-13 13 0 8 5 14 13 14zm0 364c7 0 13-6 13-13 0-8-6-14-13-14h-322c-8 0-13 6-13 14 0 7 5 13 13 13z"
-                    fill="#fff"
-                  />
-                </g>
-              </svg>
+               viewBox="0 0 2667 2667"
+               xmlns="http://www.w3.org/2000/svg"
+             >
+               <g id="Layer_x0020_1">
+                 <circle cx="1333" cy="1333" fill="#f44c71" r="1333" />
+                 <path
+                   d="m2078 1421h-1489c-60 0-109-49-109-109s49-109 109-109h1489c60 0 109 49 109 109s-49 109-109 109zm-1156-762v-34c0-60 48-108 108-108h607c59 0 108 48 108 108v34zm637 443c10 0 19-8 19-18v-42c0-13 10-23 23-23s23 10 23 23v42c0 28-17 51-42 61v31h-498v-31c-24-10-42-33-42-61v-42c0-13 11-23 24-23s23 10 23 23v42c0 10 8 18 19 18zm247-201h-945c-13 0-23-10-23-23v-84c0-60 48-108 107-108h776c60 0 108 48 108 108v84c0 13-10 23-23 23zm241 911v314c0 13-10 24-23 24h-691c-13 0-23-11-23-24v-314zm-764 338h-640c-13 0-23-11-23-24v-679h663zm-543-375v256c0 9 8 16 17 16h389c9 0 17-7 17-16v-256c0-9-8-16-17-16h-389c-9 0-17 7-17 16zm283 103c4 0 7-1 9-4l45-41c5-5 6-14 1-19-17-18-45 31-60 37h-2-131l-41-38c-13-12-31 8-18 20 9 8 43 45 54 45zm-309-103c0-24 19-43 43-43h389c24 0 43 19 43 43v256c0 24-19 43-43 43h-389c-24 0-43-19-43-43zm399-110c42 0 77-34 77-76s-35-76-77-76-76 34-76 76 34 76 76 76zm0-125c66 0 66 99 0 99-65 0-65-99 0-99zm-323 125c42 0 76-34 76-76s-35-76-76-76c-42 0-77 34-77 76s34 76 77 76zm0-125c65 0 65 99 0 99-66 0-66-99 0-99zm520-93h737v338h-737zm530 183c7 0 13-6 13-14 0-7-6-13-13-13h-322c-8 0-13 6-13 13 0 8 5 14 13 14zm0 364c7 0 13-6 13-13 0-8-6-14-13-14h-322c-8 0-13 6-13 14 0 7 5 13 13 13z"
+                   fill="#fff"
+                 />
+               </g>
+             </svg>
               <div>
                 <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
                   Custom Furniture
@@ -195,89 +244,94 @@ export default function Features() {
                   complement your space.
                 </p>
               </div>
-            </article>
-            <article className="flex items-start gap-4">
+            </motion.article>
+
+            {/* Renovation Projects */}
+            <motion.article
+              className="flex items-start gap-4"
+              variants={childVariants}
+            >
               <svg
                
             
              
               
               
-                viewBox="0 0 2833 2833"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="Layer_x0020_1">
-                  <circle cx="1417" cy="1417" fill="#7f493f" r="1417" />
-                  <g id="_423108664">
-                    <g>
-                      <g id="_423113392">
-                        <path
-                          d="m1016 1937c-12 0-20-9-20-20v-1002c0-105-86-191-192-191-105 0-191 86-191 191v936c0 11-9 20-20 20s-20-9-20-20v-936c0-128 104-231 231-231 128 0 232 103 232 231v1002c0 11-9 20-20 20z"
-                          fill="#fff"
-                        />
-                      </g>
-                      <g id="_423110104">
-                        <path
-                          d="m800 2150c-131 0-236-106-236-236s105-236 236-236c130 0 236 106 236 236 0 11-9 20-20 20s-20-9-20-20c0-108-88-196-196-196-109 0-196 88-196 196s87 196 196 196c11 0 20 9 20 20s-9 20-20 20z"
-                          fill="#fff"
-                        />
-                      </g>
-                      <g id="_423110488">
-                        <path
-                          d="m2250 2150h-1450c-11 0-20-9-20-20s9-20 20-20h1430v-1013h-1214c-12 0-20-9-20-20s8-20 20-20h1234c11 0 20 9 20 20v1053c0 11-9 20-20 20z"
-                          fill="#fff"
-                        />
-                      </g>
-                      <g>
-                        <g id="_423107656">
-                          <path
-                            d="m1657 1958h-49c-9 0-17-6-19-15l-23-85c-1 0-2 0-3-1l-62 62c-6 7-16 8-24 3l-43-24c-7-5-11-14-9-23l23-84c-1-1-2-2-3-3l-84 23c-9 2-18-1-23-9l-24-43c-5-7-3-17 3-24l62-61c0-2-1-3-1-4l-85-23c-8-2-14-10-14-19v-49c0-9 6-17 14-19l85-23c0-1 1-2 1-3l-62-62c-6-7-8-16-3-24l24-43c5-7 14-11 23-9l84 23 3-3-23-84c-2-9 2-18 9-23l43-24c8-5 18-4 24 3l62 62c1-1 2-1 3-1l23-85c2-8 10-15 19-15h49c9 0 17 7 19 15l23 85c1 0 2 0 4 1l61-62c7-7 17-8 25-3l42 24c8 5 11 14 9 23l-23 84 3 3 85-23c8-2 18 2 22 9l24 43c5 7 4 17-3 24l-62 62c1 1 1 2 1 3l85 23c9 2 15 10 15 19v49c0 9-6 17-15 19l-85 23c0 1 0 2-1 4l62 61c7 7 8 17 3 24l-24 43c-4 8-14 11-22 9l-85-23c-1 1-2 2-3 3l23 84c2 9-1 18-9 23l-42 24c-8 5-18 4-25-3l-61-62c-2 1-3 1-4 1l-23 85c-2 9-10 15-19 15zm-33-40h18l21-82c2-7 8-12 16-14 7-2 15-4 23-6 7-3 15-1 20 5l60 59 16-9-22-81c-2-8 0-15 6-20 6-6 11-12 17-17 5-6 13-8 20-6l81 21 9-15-59-60c-6-5-8-13-5-20l6-24c2-7 7-13 14-15l82-21v-19l-82-21c-7-2-12-8-14-15-2-8-4-16-6-24-3-7-1-15 5-20l59-60-9-15-81 22c-7 1-15-1-20-6-6-6-11-12-17-18-6-5-8-12-6-20l22-81-16-9-60 60c-5 5-13 7-20 4-8-2-16-4-23-6-8-1-14-7-16-14l-21-82h-18l-22 82c-2 7-8 13-15 14-8 2-16 4-24 6-7 3-15 1-20-4l-60-60-15 9 22 81c2 8-1 15-6 20-6 6-12 12-18 18-5 5-12 7-20 6l-81-22-9 15 60 60c5 5 7 13 5 20-3 8-5 16-7 24-1 7-7 13-14 15l-81 21v19l81 21c7 2 13 8 14 15l6 24c3 7 1 15-4 20l-60 60 9 15 81-21c8-2 15 0 20 6 6 6 12 11 18 17 5 5 8 12 6 20l-22 81 15 9 60-59c5-6 13-8 20-5l24 6c7 2 13 7 15 14z"
-                            fill="#fff"
-                          />
-                        </g>
-                        <g id="_423108496">
-                          <path
-                            d="m1633 1786c-101 0-183-82-183-182 0-101 82-183 183-183 100 0 182 82 182 183 0 100-82 182-182 182zm0-325c-79 0-143 64-143 143 0 78 64 142 143 142 78 0 142-64 142-142 0-79-64-143-142-143z"
-                            fill="#fff"
-                          />
-                        </g>
-                      </g>
-                      <g>
-                        <g id="_423107896">
-                          <path
-                            d="m2047 991h-791c-11 0-20-9-20-20v-167c0-11 9-20 20-20h791c11 0 20 9 20 20v167c0 11-9 20-20 20zm-771-40h751v-127h-751z"
-                            fill="#fff"
-                          />
-                        </g>
-                        <g id="_423108472">
-                          <path
-                            d="m1256 991c-3 0-6-1-9-2l-166-84c-6-3-11-10-11-17 0-8 5-15 11-18l166-84c6-3 13-3 19 1 6 3 10 10 10 17v167c0 7-4 13-10 17-3 2-7 3-10 3zm-121-104 101 51v-102z"
-                            fill="#fff"
-                          />
-                        </g>
-                        <g id="_423108424">
-                          <path
-                            d="m2179 991h-132c-12 0-20-9-20-20v-167c0-11 8-20 20-20h132c37 0 66 29 66 66v75c0 36-29 66-66 66zm-112-167v127h112c15 0 26-12 26-26v-75c0-15-11-26-26-26z"
-                            fill="#fff"
-                          />
-                        </g>
-                        <g id="_423108328">
-                          <path
-                            d="m2047 907h-791c-11 0-20-9-20-20s9-20 20-20h791c11 0 20 9 20 20s-9 20-20 20z"
-                            fill="#fff"
-                          />
-                        </g>
-                        <g id="_423108640">
-                          <path
-                            d="m2047 824c-12 0-20-9-20-20v-66h-216c-11 0-20-9-20-20s9-20 20-20h236c11 0 20 9 20 20v86c0 11-9 20-20 20z"
-                            fill="#fff"
-                          />
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+               viewBox="0 0 2833 2833"
+               xmlns="http://www.w3.org/2000/svg"
+             >
+               <g id="Layer_x0020_1">
+                 <circle cx="1417" cy="1417" fill="#7f493f" r="1417" />
+                 <g id="_423108664">
+                   <g>
+                     <g id="_423113392">
+                       <path
+                         d="m1016 1937c-12 0-20-9-20-20v-1002c0-105-86-191-192-191-105 0-191 86-191 191v936c0 11-9 20-20 20s-20-9-20-20v-936c0-128 104-231 231-231 128 0 232 103 232 231v1002c0 11-9 20-20 20z"
+                         fill="#fff"
+                       />
+                     </g>
+                     <g id="_423110104">
+                       <path
+                         d="m800 2150c-131 0-236-106-236-236s105-236 236-236c130 0 236 106 236 236 0 11-9 20-20 20s-20-9-20-20c0-108-88-196-196-196-109 0-196 88-196 196s87 196 196 196c11 0 20 9 20 20s-9 20-20 20z"
+                         fill="#fff"
+                       />
+                     </g>
+                     <g id="_423110488">
+                       <path
+                         d="m2250 2150h-1450c-11 0-20-9-20-20s9-20 20-20h1430v-1013h-1214c-12 0-20-9-20-20s8-20 20-20h1234c11 0 20 9 20 20v1053c0 11-9 20-20 20z"
+                         fill="#fff"
+                       />
+                     </g>
+                     <g>
+                       <g id="_423107656">
+                         <path
+                           d="m1657 1958h-49c-9 0-17-6-19-15l-23-85c-1 0-2 0-3-1l-62 62c-6 7-16 8-24 3l-43-24c-7-5-11-14-9-23l23-84c-1-1-2-2-3-3l-84 23c-9 2-18-1-23-9l-24-43c-5-7-3-17 3-24l62-61c0-2-1-3-1-4l-85-23c-8-2-14-10-14-19v-49c0-9 6-17 14-19l85-23c0-1 1-2 1-3l-62-62c-6-7-8-16-3-24l24-43c5-7 14-11 23-9l84 23 3-3-23-84c-2-9 2-18 9-23l43-24c8-5 18-4 24 3l62 62c1-1 2-1 3-1l23-85c2-8 10-15 19-15h49c9 0 17 7 19 15l23 85c1 0 2 0 4 1l61-62c7-7 17-8 25-3l42 24c8 5 11 14 9 23l-23 84 3 3 85-23c8-2 18 2 22 9l24 43c5 7 4 17-3 24l-62 62c1 1 1 2 1 3l85 23c9 2 15 10 15 19v49c0 9-6 17-15 19l-85 23c0 1 0 2-1 4l62 61c7 7 8 17 3 24l-24 43c-4 8-14 11-22 9l-85-23c-1 1-2 2-3 3l23 84c2 9-1 18-9 23l-42 24c-8 5-18 4-25-3l-61-62c-2 1-3 1-4 1l-23 85c-2 9-10 15-19 15zm-33-40h18l21-82c2-7 8-12 16-14 7-2 15-4 23-6 7-3 15-1 20 5l60 59 16-9-22-81c-2-8 0-15 6-20 6-6 11-12 17-17 5-6 13-8 20-6l81 21 9-15-59-60c-6-5-8-13-5-20l6-24c2-7 7-13 14-15l82-21v-19l-82-21c-7-2-12-8-14-15-2-8-4-16-6-24-3-7-1-15 5-20l59-60-9-15-81 22c-7 1-15-1-20-6-6-6-11-12-17-18-6-5-8-12-6-20l22-81-16-9-60 60c-5 5-13 7-20 4-8-2-16-4-23-6-8-1-14-7-16-14l-21-82h-18l-22 82c-2 7-8 13-15 14-8 2-16 4-24 6-7 3-15 1-20-4l-60-60-15 9 22 81c2 8-1 15-6 20-6 6-12 12-18 18-5 5-12 7-20 6l-81-22-9 15 60 60c5 5 7 13 5 20-3 8-5 16-7 24-1 7-7 13-14 15l-81 21v19l81 21c7 2 13 8 14 15l6 24c3 7 1 15-4 20l-60 60 9 15 81-21c8-2 15 0 20 6 6 6 12 11 18 17 5 5 8 12 6 20l-22 81 15 9 60-59c5-6 13-8 20-5l24 6c7 2 13 7 15 14z"
+                           fill="#fff"
+                         />
+                       </g>
+                       <g id="_423108496">
+                         <path
+                           d="m1633 1786c-101 0-183-82-183-182 0-101 82-183 183-183 100 0 182 82 182 183 0 100-82 182-182 182zm0-325c-79 0-143 64-143 143 0 78 64 142 143 142 78 0 142-64 142-142 0-79-64-143-142-143z"
+                           fill="#fff"
+                         />
+                       </g>
+                     </g>
+                     <g>
+                       <g id="_423107896">
+                         <path
+                           d="m2047 991h-791c-11 0-20-9-20-20v-167c0-11 9-20 20-20h791c11 0 20 9 20 20v167c0 11-9 20-20 20zm-771-40h751v-127h-751z"
+                           fill="#fff"
+                         />
+                       </g>
+                       <g id="_423108472">
+                         <path
+                           d="m1256 991c-3 0-6-1-9-2l-166-84c-6-3-11-10-11-17 0-8 5-15 11-18l166-84c6-3 13-3 19 1 6 3 10 10 10 17v167c0 7-4 13-10 17-3 2-7 3-10 3zm-121-104 101 51v-102z"
+                           fill="#fff"
+                         />
+                       </g>
+                       <g id="_423108424">
+                         <path
+                           d="m2179 991h-132c-12 0-20-9-20-20v-167c0-11 8-20 20-20h132c37 0 66 29 66 66v75c0 36-29 66-66 66zm-112-167v127h112c15 0 26-12 26-26v-75c0-15-11-26-26-26z"
+                           fill="#fff"
+                         />
+                       </g>
+                       <g id="_423108328">
+                         <path
+                           d="m2047 907h-791c-11 0-20-9-20-20s9-20 20-20h791c11 0 20 9 20 20s-9 20-20 20z"
+                           fill="#fff"
+                         />
+                       </g>
+                       <g id="_423108640">
+                         <path
+                           d="m2047 824c-12 0-20-9-20-20v-66h-216c-11 0-20-9-20-20s9-20 20-20h236c11 0 20 9 20 20v86c0 11-9 20-20 20z"
+                           fill="#fff"
+                         />
+                       </g>
+                     </g>
+                   </g>
+                 </g>
+               </g>
+             </svg>
               <div>
                 <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
                   Renovation Projects
@@ -287,10 +341,10 @@ export default function Features() {
                   transformations to meet contemporary needs.
                 </p>
               </div>
-            </article>
-          </div>
+            </motion.article>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
