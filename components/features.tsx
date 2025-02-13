@@ -24,11 +24,14 @@ export default function Features() {
 
   return (
     <motion.section
-      className="relative"
+      className="relative bg-white bg-opacity-95"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }} // Trigger animation once
       variants={containerVariants}
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      }}
     >
       {/* Blurred shapes */}
       <div
@@ -64,15 +67,15 @@ export default function Features() {
             className="mx-auto max-w-3xl pb-4 text-center md:pb-12"
             variants={childVariants}
           >
-            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
-              <span className="inline-flex bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-400/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-400/50">
+              <span className="inline-flex bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
                 Our Expertise
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.600),theme(colors.indigo.400),theme(colors.gray.500),theme(colors.indigo.500),theme(colors.gray.600))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
               Discover Our Specialties
             </h2>
-            <p className="text-lg text-indigo-200/65">
+            <p className="text-lg text-gray-600">
               We are a group of companies excelling in interior design, decor,
               and spatial transformation services.
             </p>
@@ -84,7 +87,7 @@ export default function Features() {
             variants={childVariants}
           >
             <Image
-              className="rounded-lg object-cover"
+              className="rounded-lg object-cover shadow-lg"
               src={OurServicesImage}
               width={900}
               height={500}
@@ -100,7 +103,7 @@ export default function Features() {
           >
             {/* Commercial Spaces */}
             <motion.article
-              className="flex items-start gap-4"
+              className="flex items-start gap-4 rounded-lg bg-white p-6 shadow-md"
               variants={childVariants}
             >
               <svg
@@ -133,11 +136,12 @@ export default function Features() {
                   <path d="m276 412.57h220v38.53h-220z" fill="#363a42" />
                 </g>
               </svg>
+
               <div>
-                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
+                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-800">
                   Commercial Spaces
                 </h3>
-                <p className="text-indigo-200/65">
+                <p className="text-gray-600">
                   Crafting inspiring workspaces and decor solutions that drive
                   creativity and productivity.
                 </p>
@@ -146,7 +150,7 @@ export default function Features() {
 
             {/* Turnkey Solutions */}
             <motion.article
-              className="flex items-start gap-4"
+              className="flex items-start gap-4 rounded-lg bg-white p-6 shadow-md"
               variants={childVariants}
             >
               <svg
@@ -202,11 +206,12 @@ export default function Features() {
                   </g>
                 </g>
               </svg>
+
               <div>
-                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
+                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-800">
                   Turnkey Solutions
                 </h3>
-                <p className="text-indigo-200/65">
+                <p className="text-gray-600">
                   Providing end-to-end solutions from design to execution for
                   hassle-free project completion.
                 </p>
@@ -215,15 +220,10 @@ export default function Features() {
 
             {/* Custom Furniture */}
             <motion.article
-              className="flex items-start gap-4"
+              className="flex items-start gap-4 rounded-lg bg-white p-6 shadow-md"
               variants={childVariants}
             >
               <svg
-               
-              
-             
-               
-             
                viewBox="0 0 2667 2667"
                xmlns="http://www.w3.org/2000/svg"
              >
@@ -235,11 +235,12 @@ export default function Features() {
                  />
                </g>
              </svg>
+
               <div>
-                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
+                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-800">
                   Custom Furniture
                 </h3>
-                <p className="text-indigo-200/65">
+                <p className="text-gray-600">
                   Designing and crafting bespoke furniture pieces that perfectly
                   complement your space.
                 </p>
@@ -248,7 +249,7 @@ export default function Features() {
 
             {/* Renovation Projects */}
             <motion.article
-              className="flex items-start gap-4"
+              className="flex items-start gap-4 rounded-lg bg-white p-6 shadow-md"
               variants={childVariants}
             >
               <svg
@@ -332,11 +333,12 @@ export default function Features() {
                  </g>
                </g>
              </svg>
+
               <div>
-                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
+                <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-800">
                   Renovation Projects
                 </h3>
-                <p className="text-indigo-200/65">
+                <p className="text-gray-600">
                   Revitalizing spaces with modern upgrades and design
                   transformations to meet contemporary needs.
                 </p>

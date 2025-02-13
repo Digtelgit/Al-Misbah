@@ -16,27 +16,25 @@ const images = [
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight:["400","600"],
+  weight: ["400", "600"],
   variable: "--font-poppins",
-})
+});
 
 export default function HeroHome() {
   return (
-    <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-gray-100">
+    <section className="bg-white text-gray-900">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Hero Content */}
         <div className="py-12 md:py-20">
-          {/* Section Header */}
           <div className="pb-12 text-center md:pb-20">
             <h1
-              className={`${poppins.className} bg-gradient-to-r from-indigo-400 via-indigo-200 to-indigo-400 bg-clip-text text-transparent text-5xl md:text-6xl font-semibold`}
+              className={`${poppins.className} bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-clip-text text-transparent text-5xl md:text-6xl font-semibold`}
               data-aos="fade-up"
             >
               Turnkey Solutions for the Built Environment
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mt-4 text-lg text-gray-300 md:text-xl"
+                className="mt-4 text-lg text-gray-700 md:text-xl"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
@@ -45,7 +43,7 @@ export default function HeroHome() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <a
-                  className="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 transition-all text-white font-medium rounded-lg shadow-lg"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all text-white font-medium rounded-lg shadow-lg"
                   href="#services"
                   data-aos="fade-up"
                   data-aos-delay={400}
@@ -53,7 +51,7 @@ export default function HeroHome() {
                   Start Your Project →
                 </a>
                 <a
-                  className="px-6 py-3 bg-gray-700 hover:bg-gray-600 transition-all text-white font-medium rounded-lg shadow-md"
+                  className="px-6 py-3 bg-gray-200 hover:bg-gray-300 transition-all text-gray-900 font-medium rounded-lg shadow-md"
                   href="/contact"
                   data-aos="fade-up"
                   data-aos-delay={600}
@@ -64,7 +62,6 @@ export default function HeroHome() {
             </div>
           </div>
 
-          {/* Image Slider */}
           <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-2xl">
             <Slide
               duration={5000}

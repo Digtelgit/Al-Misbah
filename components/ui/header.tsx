@@ -5,6 +5,7 @@ import Logo from "./logo";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [companiesOpen, setCompaniesOpen] = useState(false);
 
   useEffect(() => {
     if (menuOpen) {
@@ -18,21 +19,20 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="z-30 w-full bg-white">
+    <header className="z-30 w-full bg-gradient-to-r from-white to-indigo-50">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-20 items-center justify-between rounded-2xl bg-white px-6 shadow-sm">
+        <div className="relative flex h-20 items-center justify-between rounded-2xl bg-white/90 backdrop-blur-sm px-6 shadow-sm">
           {/* Site branding */}
-          <div className="flex items-center">
+          <div className="flex items-center z-50">
             <Logo className="h-10 w-auto" />
           </div>
 
           {/* Hamburger Menu for Mobile and Desktop */}
           <button
-            className="text-gray-900 hover:text-indigo-500 focus:outline-none z-40"
+            className="text-gray-900 hover:text-indigo-500 focus:outline-none z-50"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
-            style={{ position: "relative", zIndex: 50 }}
           >
             {menuOpen ? (
               <svg
@@ -69,19 +69,40 @@ export default function Header() {
 
           {/* Mobile Navigation Links */}
           <ul
-            className={`absolute top-0 left-0 z-40 w-full transform bg-white p-6 transition-all duration-300 ${
+            className={`absolute top-0 left-0 z-40 w-full transform bg-white/95 backdrop-blur-sm p-6 transition-all duration-300 ${
               menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
             }`}
             style={{ maxHeight: "100vh", paddingTop: "80px" }}
           >
             <li>
-              <Link
-                href="#workflows"
-                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
-                onClick={() => setMenuOpen(false)}
+              <div
+                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors cursor-pointer"
+                onClick={() => setCompaniesOpen((prev) => !prev)}
               >
                 Our Companies
-              </Link>
+              </div>
+              {companiesOpen && (
+                <ul className="pl-4">
+                  <li>
+                    <Link
+                      href="#zaartech"
+                      className="block py-2 text-base text-gray-700 hover:text-indigo-500 transition-colors"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Zaartech
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#alibhar"
+                      className="block py-2 text-base text-gray-700 hover:text-indigo-500 transition-colors"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Alibhar
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li>
               <Link
@@ -103,7 +124,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="#gallery"
+                href="/gallery"
                 className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >

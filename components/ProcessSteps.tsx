@@ -60,29 +60,28 @@ const steps = [
 
 export default function Timeline() {
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-blue-950 text-white py-16">
-  <div className="max-w-6xl mx-auto px-6 text-center">
-    <p className="text-blue-400 uppercase tracking-wide text-sm font-semibold">Our Process</p>
-    <h2 className="text-3xl font-bold text-white mb-12">See How It Works</h2>
+    <section className="bg-gradient-to-b from-gray-100 to-gray-200 text-gray-900 py-16">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <p className="text-blue-600 uppercase tracking-wide text-sm font-semibold">Our Process</p>
+        <h2 className="text-3xl font-bold text-gray-900 mb-12">See How It Works</h2>
 
-    <VerticalTimeline>
-      {steps.map((step, index) => (
-        <VerticalTimelineElement
-          key={step.id}
-          className="vertical-timeline-element--work"
-          contentStyle={{ background: "#1E3A8A", color: "#E0E7FF", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)" }}
-          contentArrowStyle={{ borderRight: "7px solid #1E3A8A" }}
-          date={`Step ${step.id}`}
-          iconStyle={{ background: "#1E3A8A", color: "#E0E7FF" }}
-          icon={step.icon}
-        >
-          <h3 className="text-xl font-bold text-white">{step.title}</h3>
-          <p className="text-sm text-gray-300 whitespace-pre-line">{step.description}</p>
-        </VerticalTimelineElement>
-      ))}
-    </VerticalTimeline>
-  </div>
-</section>
-
+        <VerticalTimeline>
+          {steps.map((step, index) => (
+            <VerticalTimelineElement
+              key={step.id}
+              className="vertical-timeline-element--work"
+              contentStyle={{ background: "#F8FAFC", color: "#1F2937", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}
+              contentArrowStyle={{ borderRight: "7px solid #F8FAFC" }}
+              date={`Step ${step.id}`}
+              iconStyle={{ background: step.color, color: "#FFFFFF" }}
+              icon={step.icon}
+            >
+              <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
+              <p className="text-sm text-gray-700 whitespace-pre-line">{step.description}</p>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </div>
+    </section>
   );
 }
