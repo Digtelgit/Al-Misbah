@@ -44,7 +44,7 @@ export default function HeroHome() {
               <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <a
                   className="px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all text-white font-medium rounded-lg shadow-lg"
-                  href="#services"
+                  href="#workflows"
                   data-aos="fade-up"
                   data-aos-delay={400}
                 >
@@ -62,7 +62,8 @@ export default function HeroHome() {
             </div>
           </div>
 
-          <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-2xl">
+          {/* Glowing Effect Container */}
+          <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-2xl glow-effect">
             <Slide
               duration={5000}
               transitionDuration={700}
@@ -86,6 +87,43 @@ export default function HeroHome() {
           </div>
         </div>
       </div>
+
+      {/* Add custom styles for the glowing effect */}
+      <style jsx>{`
+        .glow-effect {
+          position: relative;
+        }
+
+        .glow-effect::before {
+          content: "";
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          background: radial-gradient(
+            circle,
+            rgba(59, 130, 246, 0.4) 0%,
+            rgba(59, 130, 246, 0.2) 50%,
+            rgba(59, 130, 246, 0) 100%
+          );
+          border-radius: 20px;
+          z-index: -1;
+          animation: glow 3s infinite ease-in-out;
+        }
+
+        @keyframes glow {
+          0% {
+            opacity: 0.6;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0.6;
+          }
+        }
+      `}</style>
     </section>
   );
 }

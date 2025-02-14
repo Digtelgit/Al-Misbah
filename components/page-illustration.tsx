@@ -3,6 +3,8 @@ import Illustration from "@/public/images/page-illustration.svg";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 
+import illustration1 from "@/public/images/illustration.jpg";
+
 export default function PageIllustration({
   multiple = false,
 }: {
@@ -16,7 +18,7 @@ export default function PageIllustration({
       >
         <Image
           className="max-w-none"
-          src={Illustration}
+          src={illustration1}
           width={846}
           height={594}
           alt="Page illustration"
@@ -30,7 +32,7 @@ export default function PageIllustration({
           >
             <Image
               className="max-w-none"
-              src={BlurredShapeGray}
+              src={illustration1}
               width={760}
               height={668}
               alt="Blurred shape"
@@ -42,7 +44,7 @@ export default function PageIllustration({
           >
             <Image
               className="max-w-none"
-              src={BlurredShape}
+              src={illustration1}
               width={760}
               height={668}
               alt="Blurred shape"
