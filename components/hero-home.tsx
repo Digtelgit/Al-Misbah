@@ -22,8 +22,12 @@ const poppins = Poppins({
 
 export default function HeroHome() {
   return (
-    <section className="bg-white text-gray-900">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section className="relative bg-white text-gray-900">
+      {/* Pattern Background */}
+      <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-[linear-gradient(45deg,_#00000015_25%,_transparent_25%,_transparent_75%,_#00000015_75%)] bg-[length:40px_40px] opacity-30 rounded-r-full"></div>
+      <div className="absolute bottom-0 right-0 w-1/4 h-1/3 bg-[linear-gradient(45deg,_#00000015_25%,_transparent_25%,_transparent_75%,_#00000015_75%)] bg-[length:40px_40px] opacity-30 rounded-bl-full"></div>
+      
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="py-12 md:py-20">
           <div className="pb-12 text-center md:pb-20">
             <h1

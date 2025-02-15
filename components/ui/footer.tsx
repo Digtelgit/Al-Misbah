@@ -21,61 +21,47 @@ export default function Footer() {
         </div>
 
         {/* Footer Content */}
-        <div className="flex flex-wrap justify-between py-12 space-y-8 sm:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between py-12 space-y-8 md:space-y-0">
           {/* Logo Section */}
-          <div className="col-span-2 lg:col-span-1">
+          <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0">
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="text-sm">
-              A brief description or tagline about your company. Stay connected
-              with us on social media!
+            <p className="text-sm text-gray-400">
+              Al Misbah excels in interior and exhibition design, delivering
+              creative and functional solutions. Our close-knit team transforms
+              client ideas into aesthetically and commercially viable projects.
             </p>
           </div>
 
           {/* Links Section */}
-          <div className="space-y-4">
+          <div className="w-full md:w-1/3 lg:w-1/4 space-y-4">
             <h3 className="text-sm font-semibold text-gray-300 uppercase">
               Company
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a
-                  className="hover:text-indigo-400 transition"
-                  href="#0"
-                >
+                <a className="hover:text-indigo-400 transition" href="#0">
                   About Us
                 </a>
               </li>
               <li>
-                <a
-                  className="hover:text-indigo-400 transition"
-                  href="#0"
-                >
+                <a className="hover:text-indigo-400 transition" href="#0">
                   Diversity & Inclusion
                 </a>
               </li>
               <li>
-                <a
-                  className="hover:text-indigo-400 transition"
-                  href="#0"
-                >
+                <a className="hover:text-indigo-400 transition" href="#0">
                   Blog
                 </a>
               </li>
               <li>
-                <a
-                  className="hover:text-indigo-400 transition"
-                  href="#0"
-                >
+                <a className="hover:text-indigo-400 transition" href="#0">
                   Careers
                 </a>
               </li>
               <li>
-                <a
-                  className="hover:text-indigo-400 transition"
-                  href="#0"
-                >
+                <a className="hover:text-indigo-400 transition" href="#0">
                   Financial Statements
                 </a>
               </li>
@@ -83,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Social Links */}
-          <div className="space-y-4 col-span-2 md:col-span-1">
+          <div className="w-full md:w-1/3 lg:w-1/4 space-y-4">
             <h3 className="text-sm font-semibold text-gray-300 uppercase">
               Follow Us
             </h3>
