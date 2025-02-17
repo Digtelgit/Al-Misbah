@@ -33,7 +33,14 @@ export default function AboutUs() {
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none bg-[url('/images/pattern-light.svg')] opacity-10"></div>
-
+      
+      {/* Rhombus Pattern */}
+      <div className="absolute top-10 left-10 opacity-20 flex gap-2 rotate-45">
+        <div className="w-8 h-8 bg-indigo-300" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}></div>
+        <div className="w-8 h-8 bg-indigo-400" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}></div>
+        <div className="w-8 h-8 bg-indigo-500" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}></div>
+      </div>
+      
       <div className="mx-auto max-w-6xl px-4 sm:px-6 font-sans">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Image Section */}
