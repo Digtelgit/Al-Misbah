@@ -61,7 +61,7 @@ export default function Features() {
 
       {/* Main content */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,theme(colors.slate.400/.25),transparent)1] md:py-20">
+        <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,theme(colors.slate.400/.25),transparent)1] md:py-20 font-sans">
           {/* Section header */}
           <motion.div
             className="mx-auto max-w-3xl pb-4 text-center md:pb-12"

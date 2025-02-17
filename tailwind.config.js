@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         inter: ["var(--font-inter)", "sans-serif"],
         nacelle: ["var(--font-nacelle)", "sans-serif"],
+        sans: ["var(--font-miSans)", "sans-serif"],
       },
       fontSize: {
         xs: ["0.8125rem", { lineHeight: "1.5384" }],

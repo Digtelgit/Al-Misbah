@@ -45,7 +45,7 @@ const Gallery: FC<GalleryProps> = ({ images }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Heading */}
-          <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.600),theme(colors.indigo.400),theme(colors.gray.500),theme(colors.indigo.500),theme(colors.gray.600))] bg-[length:200%_auto] bg-clip-text pb-8 font-nacelle text-3xl font-semibold text-transparent md:text-4xl text-center">
+          <h2 className="font-sans animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.600),theme(colors.indigo.400),theme(colors.gray.500),theme(colors.indigo.500),theme(colors.gray.600))] bg-[length:200%_auto] bg-clip-text pb-8 text-3xl font-semibold text-transparent md:text-4xl text-center">
             Explore Our Creative Projects
           </h2>
 

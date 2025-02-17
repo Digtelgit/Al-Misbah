@@ -34,7 +34,7 @@ export default function AboutUs() {
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none bg-[url('/images/pattern-light.svg')] opacity-10"></div>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 font-sans">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Image Section */}
           <motion.div className="relative" variants={imageVariants}>

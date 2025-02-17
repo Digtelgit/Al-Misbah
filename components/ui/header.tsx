@@ -19,7 +19,7 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="z-30 w-full bg-gradient-to-r from-white to-indigo-50">
+    <header className="z-30 w-full bg-gradient-to-r from-white to-indigo-50 font-sans">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="relative flex h-20 items-center justify-between rounded-2xl bg-white/90 backdrop-blur-sm px-6 shadow-sm">
           {/* Site branding */}
@@ -50,20 +50,11 @@ export default function Header() {
                 />
               </svg>
             ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
+              <div className="w-8 h-8 flex flex-col justify-between items-center">
+                <div className="h-1 w-6 bg-gray-900 rounded-md"></div>
+                <div className="h-1 w-6 bg-gray-900 rounded-md"></div>
+                <div className="h-1 w-6 bg-gray-900 rounded-md"></div>
+              </div>
             )}
           </button>
 

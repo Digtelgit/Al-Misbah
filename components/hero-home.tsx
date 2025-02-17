@@ -31,14 +31,14 @@ export default function HeroHome() {
         <div className="py-12 md:py-20">
           <div className="pb-12 text-center md:pb-20">
             <h1
-              className={`${poppins.className} bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-clip-text text-transparent text-5xl md:text-6xl font-semibold`}
+              className={`font-sans bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-clip-text text-transparent text-5xl md:text-6xl font-semibold uppercase`}
               data-aos="fade-up"
             >
               Turnkey Solutions for the Built Environment
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mt-4 text-lg text-gray-700 md:text-xl"
+                className="mt-4 text-lg text-gray-700 md:text-xl font-sans "
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
