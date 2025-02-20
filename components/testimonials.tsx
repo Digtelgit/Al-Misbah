@@ -4,6 +4,22 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import AboutUsImage from "@/public/images/aboutUs.jpg";
 
+
+const DecorativePattern = ({ className = "" }) => (
+  <div className={`absolute ${className}`}>
+    <div className="relative w-full h-full transform transition-transform duration-700 hover:scale-105">
+      <Image
+        src="/misbahPattern.png"
+        alt="Decorative pattern"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="select-none pointer-events-none object-cover opacity-40 hover:opacity-50 transition-opacity duration-300"
+        priority={false}
+      />
+    </div>
+  </div>
+);
+
 export default function AboutUs() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,9 +47,8 @@ export default function AboutUs() {
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 pointer-events-none bg-[url('/images/pattern-light.svg')] opacity-10"></div>
-      
+    
+    
       {/* Rhombus Pattern */}
       <div className="absolute top-10 left-10 opacity-20 flex gap-2 rotate-45">
         <div className="w-8 h-8 bg-indigo-300" style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}></div>

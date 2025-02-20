@@ -63,22 +63,21 @@ const Home: FC = () => {
   return (
     <>
       <Header />
-      <PageIllustration />
+      {/* <PageIllustration /> */}
       <section id="home">
         <Hero />
       </section>
       <section id="workflows">
-        {/* <Workflows /> */}
         <Timeline />
       </section>
       <section id="services">
-      <Features />
+        <Features />
       </section>
       <section id="gallery">
-      <Gallery images={images} />
+        <Gallery images={images} />
       </section>
       <section id="about">
-      <Testimonials />
+        <Testimonials />
       </section>
       <Marquee
         className="bg-white shadow-lg p-4"

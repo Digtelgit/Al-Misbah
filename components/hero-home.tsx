@@ -22,28 +22,69 @@ const poppins = Poppins({
 
 export default function HeroHome() {
   return (
-    <section className="relative bg-white text-gray-900">
-      {/* Pattern Background */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-[linear-gradient(45deg,_#00000015_25%,_transparent_25%,_transparent_75%,_#00000015_75%)] bg-[length:40px_40px] opacity-30 rounded-r-full"></div>
-      <div className="absolute bottom-0 right-0 w-1/4 h-1/3 bg-[linear-gradient(45deg,_#00000015_25%,_transparent_25%,_transparent_75%,_#00000015_75%)] bg-[length:40px_40px] opacity-30 rounded-bl-full"></div>
-      
+    <section className="relative bg-white text-gray-900 overflow-hidden">
+      {/* Decorative Pattern Elements */}
+      {/* <Image
+        src="/misbahPattern.png"
+        alt="Pattern"
+        width={350}
+        height={350}
+        className="absolute top-10 left-1 opacity-70 rotate-65 scale-150"
+      /> */}
+      <Image
+        src="/misbahPattern.png"
+        alt="Pattern"
+        width={450}
+        height={350}
+        className="hidden md:block absolute top-1/3 left-52 opacity-50 rotate-45 scale-x-150"
+      />
+      <Image
+        src="/misbahPattern.png"
+        alt="Pattern"
+        width={450}
+        height={350}
+        className="hidden md:block absolute top-1/3 right-52 opacity-50 -rotate-45 scale-x-150"
+      />
+      {/* <Image
+        src="/misbahPattern.png"
+        alt="Pattern"
+        width={350}
+        height={350}
+        className="absolute bottom-10 right-20 opacity-70"
+      /> */}
+      {/* <Image
+        src="/misbahPattern.png"
+        alt="Pattern"
+        width={340}
+        height={450}
+        className="absolute top-1/3 right-52 opacity-40 scale-150 -rotate-45"
+      /> */}
+      {/* <Image
+        src="/misbahPattern.png"
+        alt="Pattern"
+        width={200}
+        height={200}
+        className="absolute bottom-1/4 left-20 opacity-70 -rotate-12"
+      /> */}
+
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="py-12 md:py-20">
           <div className="pb-12 text-center md:pb-20">
             <h1
-              className={`font-sans bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-clip-text text-transparent text-5xl md:text-6xl font-semibold uppercase`}
+              className="font-sans bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-clip-text text-transparent text-5xl md:text-6xl font-semibold uppercase"
               data-aos="fade-up"
             >
               Turnkey Solutions for the Built Environment
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mt-4 text-lg text-gray-700 md:text-xl font-sans "
+                className="mt-4 text-lg text-gray-700 md:text-xl font-sans"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                We specialize in creating thoughtfully designed spaces that foster
-                creativity, productivity, and success—tailored to meet every client’s needs.
+                We specialize in creating thoughtfully designed spaces that
+                foster creativity, productivity, and success—tailored to meet
+                every client's needs.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <a
@@ -66,7 +107,7 @@ export default function HeroHome() {
             </div>
           </div>
 
-          {/* Glowing Effect Container */}
+          {/* Slideshow Section */}
           <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-2xl glow-effect">
             <Slide
               duration={5000}
@@ -92,7 +133,7 @@ export default function HeroHome() {
         </div>
       </div>
 
-      {/* Add custom styles for the glowing effect */}
+      {/* Tailwind Styles for Glow Effect */}
       <style jsx>{`
         .glow-effect {
           position: relative;

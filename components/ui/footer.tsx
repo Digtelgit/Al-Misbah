@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "./logo";
 import Image from "next/image";
 // import FooterIllustration from "@/public/images/footer-illustration.svg";
@@ -41,29 +42,31 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="hover:text-indigo-400 transition" href="#0">
+                <a className="hover:text-indigo-400 transition" href="#about">
                   About Us
                 </a>
               </li>
               <li>
-                <a className="hover:text-indigo-400 transition" href="#0">
-                  Diversity & Inclusion
+                <a className="hover:text-indigo-400 transition" href="/contact">
+                  Contact Us
+                </a>
+              </li>
+              
+              
+              <li>
+                <a className="hover:text-indigo-400 transition" href="#workflows">
+                 Workflow
                 </a>
               </li>
               <li>
-                <a className="hover:text-indigo-400 transition" href="#0">
-                  Blog
-                </a>
+                <Link className="hover:text-indigo-400 transition" href="/gallery">
+                  Project Gallery
+                </Link>
               </li>
               <li>
-                <a className="hover:text-indigo-400 transition" href="#0">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-indigo-400 transition" href="#0">
-                  Financial Statements
-                </a>
+                <Link className="hover:text-indigo-400 transition" href="#services">
+                  Services
+                </Link>
               </li>
             </ul>
           </div>

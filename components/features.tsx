@@ -5,14 +5,29 @@ import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 import OurServicesImage from "@/public/images/OurServices.jpg";
 
+
+const DecorativePattern = ({ className = "" }) => (
+  <div className={`absolute ${className}`}>
+    <div className="relative w-full h-full transform transition-transform duration-700 hover:scale-105">
+      <Image
+        src="/misbahPattern.png"
+        alt="Decorative pattern"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="select-none pointer-events-none object-cover opacity-40 hover:opacity-50 transition-opacity duration-300"
+        priority={false}
+      />
+    </div>
+  </div>
+);
+
 export default function Features() {
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Delay between child animations
+        staggerChildren: 0.2,
       },
     },
   };
@@ -21,35 +36,19 @@ export default function Features() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
-
   return (
     <motion.section
       className="relative bg-white bg-opacity-95"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }} // Trigger animation once
+      viewport={{ once: true, amount: 0.2 }} 
       variants={containerVariants}
       style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
       }}
     >
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Rhombus 1 */}
-        <div className="absolute w-24 h-24 bg-[#0FAFB6] opacity-20 transform rotate-45 -top-12 left-1/4"></div>
-        {/* Rhombus 2 */}
-        <div className="absolute w-16 h-16 bg-[#BBB4B4] opacity-20 transform rotate-45 top-1/3 right-1/4"></div>
-        {/* Rhombus 3 */}
-        <div className="absolute w-20 h-20 bg-[#0FAFB6] opacity-20 transform rotate-45 bottom-1/4 left-1/2"></div>
-        {/* Rhombus 4 */}
-        <div className="absolute w-12 h-12 bg-[#BBB4B4] opacity-20 transform rotate-45 top-1/4 right-1/2"></div>
-        {/* Rhombus 5 */}
-        <div className="absolute w-28 h-28 bg-[#0FAFB6] opacity-20 transform rotate-45 bottom-12 left-12"></div>
-        {/* Rhombus 6 */}
-        <div className="absolute w-32 h-32 bg-[#BBB4B4] opacity-20 transform rotate-45 top-1/2 right-12"></div>
-        {/* Rhombus 7 */}
-        <div className="absolute w-18 h-18 bg-[#0FAFB6] opacity-20 transform rotate-45 bottom-1/3 left-1/3"></div>
-      </div>
-
+      
+    
       {/* Blurred shapes */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 -z-10 -mt-20 -translate-x-1/2"

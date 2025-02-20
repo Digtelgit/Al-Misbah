@@ -27,35 +27,30 @@ export default function Header() {
             <Logo className="h-10 w-auto" />
           </div>
 
-          {/* Hamburger Menu for Mobile and Desktop */}
+          {/* Simple Modern Hamburger Menu */}
           <button
-            className="text-gray-900 hover:text-indigo-500 focus:outline-none z-50"
+            className="relative text-gray-500 hover:text-indigo-500 focus:outline-none z-50 w-8 h-8 transition-colors duration-200"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
           >
-            {menuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <div className="w-8 h-8 flex flex-col justify-between items-center">
-                <div className="h-1 w-6 bg-gray-900 rounded-md"></div>
-                <div className="h-1 w-6 bg-gray-900 rounded-md"></div>
-                <div className="h-1 w-6 bg-gray-900 rounded-md"></div>
-              </div>
-            )}
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <div
+                className={`w-5 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                  menuOpen ? "rotate-45 translate-y-0.5" : "-translate-y-1"
+                }`}
+              ></div>
+              <div
+                className={`w-5 h-0.5 bg-current transition-all duration-300 ease-in-out my-0.5 ${
+                  menuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              ></div>
+              <div
+                className={`w-5 h-0.5 bg-current transition-all duration-300 ease-in-out ${
+                  menuOpen ? "-rotate-45 -translate-y-0.5" : "translate-y-1"
+                }`}
+              ></div>
+            </div>
           </button>
 
           {/* Mobile Navigation Links */}
@@ -102,6 +97,15 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
               >
                 About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#workflows"
+                className="block py-3 text-lg text-gray-900 hover:text-indigo-500 transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
+                Our Process
               </Link>
             </li>
             <li>
