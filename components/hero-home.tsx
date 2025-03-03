@@ -14,71 +14,45 @@ const images = [
   "/images/heroSection/6.jpeg",
 ];
 
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600"],
   variable: "--font-poppins",
 });
 
+const DecorativePattern = ({ className = "" }) => (
+  <div className={`absolute ${className}`}>
+    <div className="relative w-full h-full transform transition-transform duration-700 hover:scale-105">
+      <Image
+        src="/misbahPattern.png"
+        alt="Decorative pattern"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="select-none pointer-events-none object-cover opacity-40 hover:opacity-50 transition-opacity duration-300"
+        priority={false}
+      />
+    </div>
+  </div>
+);
+
 export default function HeroHome() {
   return (
     <section className="relative bg-white text-gray-900 overflow-hidden">
-      {/* Decorative Pattern Elements */}
-      {/* <Image
-        src="/misbahPattern.png"
-        alt="Pattern"
-        width={350}
-        height={350}
-        className="absolute top-10 left-1 opacity-70 rotate-65 scale-150"
-      /> */}
-      <Image
-        src="/misbahPattern.png"
-        alt="Pattern"
-        width={450}
-        height={350}
-        className="hidden md:block absolute top-1/3 left-52 opacity-50 rotate-45 scale-x-150"
-      />
-      <Image
-        src="/misbahPattern.png"
-        alt="Pattern"
-        width={450}
-        height={350}
-        className="hidden md:block absolute top-1/3 right-52 opacity-50 -rotate-45 scale-x-150"
-      />
-      {/* <Image
-        src="/misbahPattern.png"
-        alt="Pattern"
-        width={350}
-        height={350}
-        className="absolute bottom-10 right-20 opacity-70"
-      /> */}
-      {/* <Image
-        src="/misbahPattern.png"
-        alt="Pattern"
-        width={340}
-        height={450}
-        className="absolute top-1/3 right-52 opacity-40 scale-150 -rotate-45"
-      /> */}
-      {/* <Image
-        src="/misbahPattern.png"
-        alt="Pattern"
-        width={200}
-        height={200}
-        className="absolute bottom-1/4 left-20 opacity-70 -rotate-12"
-      /> */}
+      <DecorativePattern className="top-0 left-2 w-96 h-96 -translate-y-2/4 -translate-x-1/3 " />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="py-12 md:py-20">
           <div className="pb-12 text-center md:pb-20">
             <h1
-              className="font-sans bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 bg-clip-text text-transparent text-5xl md:text-6xl font-semibold uppercase"
+              className="font-sans bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 bg-clip-text text-transparent text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-extrabold uppercase tracking-tight leading-none breaking-words px-2"
               data-aos="fade-up"
             >
               Turnkey Solutions for the Built Environment
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mt-4 text-lg text-gray-700 md:text-xl font-sans"
+                className="mt-3 md:mt-4 text-base sm:text-lg text-gray-700 md:text-xl font-sans"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
@@ -86,9 +60,9 @@ export default function HeroHome() {
                 foster creativity, productivity, and success—tailored to meet
                 every client's needs.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+              <div className="mt-6 md:mt-8 flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
                 <a
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-all text-white font-medium rounded-lg shadow-lg"
+                  className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 transition-all text-white font-medium rounded-lg shadow-lg text-sm sm:text-base"
                   href="#workflows"
                   data-aos="fade-up"
                   data-aos-delay={400}
@@ -96,7 +70,7 @@ export default function HeroHome() {
                   Start Your Project →
                 </a>
                 <a
-                  className="px-6 py-3 bg-gray-200 hover:bg-gray-300 transition-all text-gray-900 font-medium rounded-lg shadow-md"
+                  className="px-4 py-2 sm:px-6 sm:py-3 bg-gray-200 hover:bg-gray-300 transition-all text-gray-900 font-medium rounded-lg shadow-md text-sm sm:text-base"
                   href="/contact"
                   data-aos="fade-up"
                   data-aos-delay={600}
@@ -108,7 +82,7 @@ export default function HeroHome() {
           </div>
 
           {/* Slideshow Section */}
-          <div className="relative w-full h-[500px] rounded-xl overflow-hidden shadow-2xl glow-effect">
+          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-2xl glow-effect">
             <Slide
               duration={5000}
               transitionDuration={700}
@@ -118,7 +92,7 @@ export default function HeroHome() {
               arrows
             >
               {images.map((src, index) => (
-                <div key={index} className="relative w-full h-[500px]">
+                <div key={index} className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
                   <Image
                     src={src}
                     alt={`Slide ${index + 1}`}

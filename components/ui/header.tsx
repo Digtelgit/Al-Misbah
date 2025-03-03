@@ -19,9 +19,9 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="z-30 w-full bg-gradient-to-r from-white to-indigo-50 font-sans">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-20 items-center justify-between rounded-2xl bg-white/90 backdrop-blur-sm px-6 shadow-sm">
+    <header className="z-30 w-full bg-white font-sans shadow-sm">
+      <div className="w-full">
+        <div className="relative flex h-20 items-center justify-between bg-white px-6 md:px-10 lg:px-16">
           {/* Site branding */}
           <div className="flex items-center z-50">
             <Logo className="h-10 w-auto" />
@@ -55,7 +55,7 @@ export default function Header() {
 
           {/* Mobile Navigation Links */}
           <ul
-            className={`absolute top-0 left-0 z-40 w-full transform bg-white/95 backdrop-blur-sm p-6 transition-all duration-300 ${
+            className={`absolute top-0 left-0 z-40 w-full transform bg-white  p-6 transition-all duration-300 ${
               menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
             }`}
             style={{ maxHeight: "100vh", paddingTop: "80px" }}

@@ -1,134 +1,241 @@
 "use client";
 
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import { FaClipboardList, FaDraftingCompass, FaTools, FaCheckCircle } from "react-icons/fa";
+import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { 
+  BsCurrencyDollar, 
+  BsRulers, 
+  BsBuilding, 
+  BsClipboardCheck 
+} from "react-icons/bs";
+
+// Container animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+// Step item animation variants
+const stepVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    }
+  }
+};
 
 const steps = [
   { 
-    id: "01", 
-    title: "BIDDING / PROPOSAL", 
-    description: `
-      - Reviewing project scope and technical specifications
-      - Preparing competitive pricing and value engineering solutions
-      - Conducting pre-bid meetings and clarifications
-      - Submitting proposals with detailed breakdowns
-    `,
-    icon: <FaClipboardList />,
+    id: "1", 
+    title: "BIDDING & PROPOSAL", 
+    content: [
+      "Review of project scope and technical specifications",
+      "Preparation of competitive pricing and value engineering solutions",
+      "Conduct pre-bid coordination meetings, compliance and clarifications",
+      "Submit necessary proposals with detailed breakdowns, renderings etc."
+    ],
+    icon: <BsCurrencyDollar size={24} />,
     color: "#3B82F6", 
   },
   { 
-    id: "02",
-    title: "DESIGN & APPROVALS", 
-    description: `
-      - Securing as-built documents from the landlord
-      - Preparing shop drawings and obtaining consultant approvals
-      - Submitting materials for review and client approval
-      - Coordinating with authorities (DCD, DM, DDA, JAFZA, etc.)
-      - Preparing a detailed project schedule for client review
-    `,
-    icon: <FaDraftingCompass />,
+    id: "2",
+    title: "DESIGN & APPROVAL", 
+    content: [
+      "Secure necessary as-built documents and drawings from the Landlord",
+      "Preparation of shop drawings and obtaining consultant / Landlord approval",
+      "Submitting material samples and datasheets for acceptance by client",
+      "Liaising with required local regulatory authorities for obtaining approvals",
+      "Preparation of a detailed project work schedule for client review and approval"
+    ],
+    icon: <BsRulers size={24} />,
     color: "#EC4899", 
   },
   { 
-    id: "03", 
-    title: "INTERIOR FIT-OUT", 
-    description: `
-      - Site surveys and project mobilization
-      - Health & Safety compliance measures
-      - Partitioning, ceiling, and wall finishes
-      - MEP installations, testing, and commissioning
-      - Custom joinery, loose furniture, and metalwork
-      - FF&E (Fixtures, Fittings & Equipment)
-    `,
-    icon: <FaTools />,
+    id: "3", 
+    title: "FIT-OUT WORKS", 
+    content: [
+      "Survey, mobilization, protection and HSE measures",
+      "Construction / modifications of partitions, ceiling and walls",
+      "MEP & FLS installations, testing and commissioning",
+      "Partition, ceiling and wall finishes and fixtures",
+      "Glass, metal, joinery and loose furniture installations"
+    ],
+    icon: <BsBuilding size={24} />,
     color: "#10B981",
   },
   { 
-    id: "04", 
+    id: "4", 
     title: "CLOSE-OUT & HANDOVER", 
-    description: `
-      - Conducting final inspections with clients and consultants
-      - Preparing and rectifying snag lists
-      - Coordinating authority inspections and obtaining completion certificates
-      - Ensuring successful handover with full documentation for client occupancy
-    `,
-    icon: <FaCheckCircle />,
+    content: [
+      "Conduct final inspections with Client and Landlord",
+      "Preparation of snag list and rectification of the snag points",
+      "Arrange authority inspections and obtaining NOC / Completion Certificates",
+      "Prepare and submit all As-built / warranty documents",
+      "Ensure safe and timely occupancy of the premises by the client"
+    ],
+    icon: <BsClipboardCheck size={24} />,
     color: "#F59E0B", 
   },
 ];
 
 const DecorativePattern = ({ className = "" }) => (
   <div className={`absolute ${className}`}>
-    <div className="relative w-full h-full transform transition-transform duration-700 hover:scale-105">
+    <motion.div 
+      className="relative w-full h-full"
+      initial={{ opacity: 0.3, scale: 0.95 }}
+      animate={{ opacity: 0.4, scale: 1 }}
+      transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+    >
       <Image
         src="/misbahPattern.png"
         alt="Decorative pattern"
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="select-none pointer-events-none object-cover opacity-40 hover:opacity-50 transition-opacity duration-300"
+        className="select-none pointer-events-none object-cover"
         priority={false}
       />
-    </div>
+    </motion.div>
   </div>
 );
 
-export default function Timeline() {
+const TimelineStep = ({ step, isEven, isLast }) => {
+  const ref = useRef(null);
+  const lineRef = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const lineInView = useInView(lineRef, { once: true, amount: 0.1 });
+  
   return (
-    <section className="relative bg-gradient-to-br from-white via-slate-50 to-white text-gray-900 py-24 font-sans overflow-hidden">
-      {/* Decorative Patterns with improved positioning and animations */}
-      <DecorativePattern className="top-0 right-0 w-96 h-96 -translate-y-1/3 translate-x-1/3 rotate-45" />
-      <DecorativePattern className="top-1/2 left-0 w-80 h-80 -translate-x-1/3 -translate-y-1/2 -rotate-12" />
-      <DecorativePattern className="bottom-0 right-0 w-72 h-72 translate-x-1/4 translate-y-1/4 rotate-90" />
-      <DecorativePattern className="bottom-0 left-0 w-64 h-64 -translate-x-1/4 translate-y-1/4 -rotate-45" />
+    <motion.div
+      ref={ref}
+      variants={stepVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className={`flex flex-col md:flex-row items-center gap-6 md:gap-10 mb-16 last:mb-0 ${
+        isEven ? "md:flex-row-reverse text-right" : "text-left"
+      }`}
+    >
+      {/* Timeline line and circle */}
+      <div className="flex flex-col items-center">
+        <motion.div 
+          className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10"
+          style={{ backgroundColor: step.color }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          {step.icon}
+        </motion.div>
+        
+        {!isLast && (
+          <motion.div 
+            ref={lineRef}
+            className="w-1 bg-gray-200 h-32 md:h-40 relative overflow-hidden"
+          >
+            <motion.div 
+              className="absolute top-0 left-0 right-0 bg-blue-500"
+              initial={{ height: 0 }}
+              animate={lineInView ? { height: "100%" } : { height: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              style={{ backgroundColor: step.color }}
+            />
+          </motion.div>
+        )}
+      </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div className="max-w-3xl mx-auto mb-16">
-          <p className="text-blue-600 uppercase tracking-wider text-sm font-semibold mb-3 animate-fade-in">
-            Our Process
-          </p>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            See How It Works
-          </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full" />
+      {/* Content */}
+      <div className={`bg-white rounded-xl p-6 shadow-md w-full md:w-3/4 border border-gray-100 hover:shadow-lg transition-shadow duration-300`}>
+        <div className="flex items-center gap-4 mb-4">
+          <div className="bg-gray-100 text-gray-600 font-bold rounded-lg py-1 px-3 text-sm">
+            STEP {step.id}
+          </div>
+          <h3 className="text-xl font-bold">{step.title}</h3>
         </div>
-
-        <VerticalTimeline animate={true}>
-          {steps.map((step) => (
-            <VerticalTimelineElement
-              key={step.id}
-              className="vertical-timeline-element--work"
-              contentStyle={{ 
-                background: "rgba(255, 255, 255, 0.9)", 
-                color: "#1F2937", 
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(229, 231, 235, 0.5)",
-                borderRadius: "1rem"
-              }}
-              contentArrowStyle={{ 
-                borderRight: "7px solid rgba(255, 255, 255, 0.9)" 
-              }}
-              date={`Step ${step.id}`}
-              iconStyle={{ 
-                background: step.color, 
-                color: "#FFFFFF",
-                boxShadow: `0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05)`
-              }}
-              icon={step.icon}
-            >
-              <div className="group hover:transform hover:scale-[1.02] transition-all duration-300">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-gray-700 whitespace-pre-line leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </VerticalTimelineElement>
+        <ul className={`space-y-2 ${isEven ? "md:text-right" : "md:text-left"}`}>
+          {step.content.map((item, index) => (
+            <li key={index} className="flex items-start gap-2">
+              <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
+              <p className="text-gray-700">{item}</p>
+            </li>
           ))}
-        </VerticalTimeline>
+        </ul>
+      </div>
+    </motion.div>
+  );
+};
+
+export default function Timeline() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+
+  return (
+    <section 
+      ref={sectionRef}
+      className="relative bg-gradient-to-br from-white via-slate-50 to-white py-24 overflow-hidden"
+    >
+      {/* Decorative Patterns */}
+      <DecorativePattern className="top-0 right-0 w-96 h-96 -translate-y-1/3 translate-x-1/3" />
+      <DecorativePattern className="top-1/2 left-0 w-80 h-80 -translate-x-1/3 -translate-y-1/2" />
+      <DecorativePattern className="bottom-0 right-0 w-72 h-72 translate-x-1/4 translate-y-1/4" />
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section header */}
+        <motion.div 
+          className="max-w-3xl mx-auto mb-16 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.p 
+            className="text-blue-600 uppercase tracking-wider text-sm font-semibold mb-3"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Our Process
+          </motion.p>
+          <motion.h2 
+            className="text-4xl font-bold text-gray-900 mb-6 leading-tight"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            Our Project Delivery Process
+          </motion.h2>
+          <motion.div 
+            className="w-24 h-1 bg-blue-600 mx-auto rounded-full"
+            initial={{ width: 0 }}
+            animate={isInView ? { width: 96 } : { width: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          />
+        </motion.div>
+
+        {/* Timeline steps */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="relative pl-4 sm:pl-0"
+        >
+          {steps.map((step, index) => (
+            <TimelineStep 
+              key={step.id} 
+              step={step} 
+              isEven={index % 2 === 1}
+              isLast={index === steps.length - 1}
+            />
+          ))}
+        </motion.div>
       </div>
     </section>
   );

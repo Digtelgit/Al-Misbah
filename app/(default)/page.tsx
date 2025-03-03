@@ -63,7 +63,6 @@ const Home: FC = () => {
   return (
     <>
       <Header />
-      {/* <PageIllustration /> */}
       <section id="home">
         <Hero />
       </section>
@@ -129,12 +128,12 @@ const Home: FC = () => {
             height={100}
             alt="Marquee 7"
           />
-          <Image
+          {/* <Image
             src="/images/Marquee/2525.png"
             width={200}
             height={100}
             alt="Marquee 8"
-          />
+          /> */}
           <Image
             src="/images/Marquee/2626.png"
             width={200}
