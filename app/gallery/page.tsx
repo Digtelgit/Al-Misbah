@@ -1,6 +1,8 @@
 import Header from "@/components/ui/header";
 import Gallery from "./Gallery";
 import { images } from "./galleryData";
+import Footer from "@/components/ui/footer";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Gallery - Al Misbah",
@@ -11,7 +13,10 @@ export default function GalleryPage() {
   return (
     <>
       <Header />
-      <Gallery images={images} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Gallery />
+      </Suspense>
+      <Footer />
     </>
   );
 }

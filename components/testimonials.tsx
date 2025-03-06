@@ -40,23 +40,23 @@ export default function AboutUs() {
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50 rounded-full -mr-32 -mt-32 opacity-70"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-50 rounded-full -ml-48 -mb-48 opacity-70"></div>
+      {/* Background decorative elements - made responsive */}
+      <div className="absolute top-0 right-0 w-48 md:w-64 h-48 md:h-64 bg-indigo-50 rounded-full -mr-24 md:-mr-32 -mt-24 md:-mt-32 opacity-70"></div>
+      <div className="absolute bottom-0 left-0 w-72 md:w-96 h-72 md:h-96 bg-indigo-50 rounded-full -ml-36 md:-ml-48 -mb-36 md:-mb-48 opacity-70"></div>
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
           {/* Content Side */}
-          <motion.div className="lg:w-1/2" variants={fadeInVariants}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-800 via-indigo-700 to-indigo-600 bg-clip-text text-transparent">
+          <motion.div className="w-full lg:w-1/2" variants={fadeInVariants}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-800 via-indigo-700 to-indigo-600 bg-clip-text text-transparent">
               About Us
             </h2>
 
             <motion.div
-              className="prose prose-lg max-w-none space-y-6"
+              className="prose prose-lg max-w-none space-y-4 md:space-y-6"
               variants={fadeInVariants}
             >
               <p className="text-gray-800 leading-relaxed">
@@ -80,18 +80,18 @@ export default function AboutUs() {
             </motion.div>
 
             {/* Call to action */}
-            <motion.div className="mt-8" variants={fadeInVariants}>
-              <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1">
+            <motion.div className="mt-6 md:mt-8" variants={fadeInVariants}>
+              <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1">
                 Discover Our Services
               </button>
             </motion.div>
           </motion.div>
 
-          {/* Image Side with decorative elements */}
-          <motion.div className="lg:w-1/2 relative" variants={imageVariants}>
-            <div className="relative z-10">
-              {/* Decorative frame */}
-              <div className="absolute -inset-4 border-2 border-indigo-200 rounded-xl"></div>
+          {/* Image Side with responsive decorative elements */}
+          <motion.div className="w-full lg:w-1/2 relative mt-10 lg:mt-0" variants={imageVariants}>
+            <div className="relative z-10 mx-4 sm:mx-8 lg:mx-0">
+              {/* Decorative frame - reduced dimensions on smaller screens */}
+              <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 border-2 border-indigo-200 rounded-xl"></div>
 
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
                 <Image
@@ -106,9 +106,9 @@ export default function AboutUs() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/20 to-transparent opacity-60"></div>
               </div>
 
-              {/* Stats card */}
+              {/* Stats card - adjusted positioning for responsiveness */}
               <motion.div
-                className="absolute -bottom-8 -right-8 bg-white p-4 rounded-lg shadow-xl"
+                className="absolute -bottom-4 sm:-bottom-6 md:-bottom-8 -right-4 sm:-right-6 md:-right-8 bg-white p-3 sm:p-4 rounded-lg shadow-xl"
                 variants={{
                   hidden: { opacity: 0, x: 20 },
                   visible: {
@@ -118,24 +118,24 @@ export default function AboutUs() {
                   },
                 }}
               >
-                <div className="flex gap-6">
+                <div className="flex gap-4 sm:gap-6">
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-indigo-600">
+                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-600">
                       Trusted
                     </p>
-                    <p className="text-sm text-gray-600">By Many Clients</p>
+                    <p className="text-xs sm:text-sm text-gray-600">By Many Clients</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-indigo-600">100%</p>
-                    <p className="text-sm text-gray-600">Client Satisfaction</p>
+                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-600">100%</p>
+                    <p className="text-xs sm:text-sm text-gray-600">Client Satisfaction</p>
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            {/* Background decorative elements */}
-            <div className="absolute top-1/2 -right-12 w-24 h-24 bg-indigo-100 rounded-full"></div>
-            <div className="absolute -top-6 left-6 w-16 h-16 bg-indigo-100 rounded-full"></div>
+            {/* Background decorative elements - made responsive */}
+            <div className="absolute top-1/2 -right-8 sm:-right-10 md:-right-12 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-indigo-100 rounded-full"></div>
+            <div className="absolute -top-4 sm:-top-5 md:-top-6 left-4 sm:left-5 md:left-6 w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 bg-indigo-100 rounded-full"></div>
           </motion.div>
         </div>
       </div>

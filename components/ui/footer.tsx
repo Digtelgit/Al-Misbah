@@ -1,15 +1,14 @@
 import Link from "next/link";
 import Logo from "./logo";
 import Image from "next/image";
-// import FooterIllustration from "@/public/images/footer-illustration.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-200">
+    <footer className="bg-white text-gray-700 border-t border-gray-200">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Footer Illustration */}
+        {/* Footer Illustration - Optional, can be removed for cleaner look */}
         <div
-          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 w-full max-w-7xl"
+          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 w-full max-w-7xl opacity-10"
           aria-hidden="true"
         >
           <Image
@@ -28,7 +27,7 @@ export default function Footer() {
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-600">
               Al Misbah excels in interior and exhibition design, delivering
               creative and functional solutions. Our close-knit team transforms
               client ideas into aesthetically and commercially viable projects.
@@ -37,34 +36,32 @@ export default function Footer() {
 
           {/* Links Section */}
           <div className="w-full md:w-1/3 lg:w-1/4 space-y-4">
-            <h3 className="text-sm font-semibold text-gray-300 uppercase">
+            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
               Company
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="hover:text-indigo-400 transition" href="#about">
+                <a className="text-gray-600 hover:text-indigo-600 transition duration-300" href="#about">
                   About Us
                 </a>
               </li>
               <li>
-                <a className="hover:text-indigo-400 transition" href="/contact">
+                <a className="text-gray-600 hover:text-indigo-600 transition duration-300" href="/contact">
                   Contact Us
                 </a>
               </li>
-              
-              
               <li>
-                <a className="hover:text-indigo-400 transition" href="#workflows">
-                 Workflow
+                <a className="text-gray-600 hover:text-indigo-600 transition duration-300" href="#workflows">
+                  Workflow
                 </a>
               </li>
               <li>
-                <Link className="hover:text-indigo-400 transition" href="/gallery">
+                <Link className="text-gray-600 hover:text-indigo-600 transition duration-300" href="/gallery">
                   Project Gallery
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-indigo-400 transition" href="#services">
+                <Link className="text-gray-600 hover:text-indigo-600 transition duration-300" href="#services">
                   Services
                 </Link>
               </li>
@@ -73,13 +70,13 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="w-full md:w-1/3 lg:w-1/4 space-y-4">
-            <h3 className="text-sm font-semibold text-gray-300 uppercase">
+            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
               Follow Us
             </h3>
             <ul className="flex space-x-4">
               <li>
                 <a
-                  className="text-indigo-500 hover:text-indigo-400 transition"
+                  className="text-gray-500 hover:text-indigo-600 transition duration-300"
                   href="#0"
                   aria-label="Twitter"
                 >
@@ -94,7 +91,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  className="text-indigo-500 hover:text-indigo-400 transition"
+                  className="text-gray-500 hover:text-indigo-600 transition duration-300"
                   href="#0"
                   aria-label="Medium"
                 >
@@ -109,7 +106,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  className="text-indigo-500 hover:text-indigo-400 transition"
+                  className="text-gray-500 hover:text-indigo-600 transition duration-300"
                   href="#0"
                   aria-label="Github"
                 >
@@ -124,6 +121,13 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Copyright Line */}
+        <div className="border-t border-gray-200 py-6">
+          <p className="text-sm text-gray-500 text-center">
+            © {new Date().getFullYear()} Al Misbah Design. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -10,6 +10,7 @@ import Marquee from "@/components/marquee";
 import Image from "next/image";
 import Header from "@/components/ui/header";
 import Timeline from "@/components/ProcessSteps";
+import SubCompanyBar from "@/components/HorizontalBar";
 
 export const metadata = {
   title: "Al Misbah - Home",
@@ -18,53 +19,35 @@ export const metadata = {
 
 const images = [
   {
-    src: "/images/gallery/1.jpeg",
+    id:1,
+    src: "/images/gallery/egr1.jpeg",
     alt: "Image 1",
-    hoverText: "Publicis Sapient Office in DMC",
+    hoverText: "EGR HOLDING OFFICE, Prestige Tower, Musaffah",
   },
   {
-    src: "/images/gallery/2.jpg",
+    id:2,
+    src: "/images/gallery/benz1.jpeg",
     alt: "Image 2",
-    hoverText: "Esproses Cafe in Al Ain Centre",
+    hoverText: "MERCEDES BENZ EV Showroom",
   },
   {
-    src: "/images/gallery/3.jpg",
+    id:3,
+    src: "/images/gallery/rove1.jpeg",
     alt: "Image 3",
-    hoverText: "Otaku Restaurant in Al Gurm, Abu Dhabi",
-  },
-  {
-    src: "/images/gallery/4.jpeg",
-    alt: "Image 4",
-    hoverText: "Tomyum Thai Restaurant in Dubai Outlet Mall",
-  },
-  {
-    src: "/images/gallery/5.jpg",
-    alt: "Image 5",
-    hoverText: "Jiva Elite Restaurant in Karama, Dubai",
-  },
-  {
-    src: "/images/gallery/6.jpg",
-    alt: "Image 6",
-    hoverText: "Bournhall Clinic in Al Garhoud, Dubai",
-  },
-  {
-    src: "/images/gallery/7.jpeg",
-    alt: "Image 7",
-    hoverText: "Building in Khalifa City, Abu Dhabi",
-  },
-  {
-    src: "/images/gallery/8.jpg",
-    alt: "Image 8",
-    hoverText: "Private Villas, Dubai and Sharjah",
-  },
+    hoverText: "ROVE HOTEL",
+  }
 ];
 
 const Home: FC = () => {
   return (
     <>
       <Header />
+      
       <section id="home">
         <Hero />
+      </section>
+      <section id="about">
+        <Testimonials />
       </section>
       <section id="workflows">
         <Timeline />
@@ -74,9 +57,6 @@ const Home: FC = () => {
       </section>
       <section id="gallery">
         <Gallery images={images} />
-      </section>
-      <section id="about">
-        <Testimonials />
       </section>
       <Marquee
         className="bg-white shadow-lg p-4"
