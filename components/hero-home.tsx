@@ -8,28 +8,27 @@ import "react-slideshow-image/dist/styles.css";
 const slides = [
   {
     image: "/images/heroSection/5.jpeg",
-    text: "SEAMLESS PARTITIONS & ELEGANT CEILINGS",
+    text: "Seamless Partitions & Elegant Ceilings",
   },
   {
     image: "/images/heroSection/1.jpg",
-    text: "BESPOKE JOINERY FOR DISTINCTIVE SPACES",
+    text: "Bespoke Joinery for Distinctive Spaces",
   },
   {
     image: "/images/heroSection/2.jpeg",
-    text: "CURATED FURNITURE & FIXTURES",
+    text: "Curated Furniture & Fixtures",
   },
   {
     image: "/images/heroSection/3.jpeg",
-    text: "PRECISION METAL & GLASS CRAFTSMANSHIP",
+    text: "Precision Metal & Glass Craftsmanship",
   },
   {
     image: "/images/heroSection/4.jpeg",
-    text: "PREMIUM FINISHES, TIMELESS SOPHISTICATION",
+    text: "Premium Finishes, Timeless Sophistication",
   },
-
   {
     image: "/images/heroSection/6.jpeg",
-    text: "CREATING LASTING IMPRESSIONS",
+    text: "Creating Lasting Impressions",
   },
 ];
 
@@ -65,7 +64,7 @@ export default function HeroHome() {
         <div className="py-12 md:py-20">
           <div className="pb-12 text-center md:pb-16">
             <h1
-              className="font-sans bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 bg-clip-text text-transparent text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-extrabold uppercase tracking-tight leading-none px-2"
+              className="font-sans text-blue-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-extrabold tracking-tight leading-none px-2"
               data-aos="fade-up"
             >
               Turnkey Solutions for the Built Environment
@@ -111,7 +110,7 @@ export default function HeroHome() {
               indicators={false}
               arrows={true}
               prevArrow={
-                <div className="absolute z-10 left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 backdrop-blur-sm rounded-full cursor-pointer hover:bg-white/50 transition-all">
+                <div className="absolute z-10 left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 rounded-full cursor-pointer hover:bg-white/50 transition-all">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -157,10 +156,10 @@ export default function HeroHome() {
                     className="rounded-xl object-cover"
                     priority={index === 0}
                   />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center">
                     <div className="px-6 w-full max-w-5xl">
                       <div className="text-center">
-                        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wider uppercase shadow-text transition-transform duration-500 transform hover:scale-105">
+                        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wider font-variant-small-caps shadow-text transition-transform duration-500 transform hover:scale-105">
                           {slide.text}
                         </h2>
                       </div>

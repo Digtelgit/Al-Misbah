@@ -7,10 +7,11 @@ import Image from "next/image";
 import {
   BsCurrencyDollar,
   BsRulers,
-  BsBuilding,
-  BsClipboardCheck,
+  BsFillBuildingsFill,
 } from "react-icons/bs";
 import { FaHandshake } from "react-icons/fa";
+import { GrDocumentText } from "react-icons/gr";
+import DesingPng from "../public/Design.png";
 
 // Container animation variants
 const containerVariants = {
@@ -40,7 +41,7 @@ const stepVariants = {
 
 const steps = [
   {
-    id: "1",
+    id: 1,
     title: "BIDDING & PROPOSAL",
     content: [
       "Review of project scope and technical specifications",
@@ -48,11 +49,11 @@ const steps = [
       "Conduct pre-bid coordination meetings, compliance and clarifications",
       "Submit necessary proposals with detailed breakdowns, renderings etc.",
     ],
-    icon: <BsCurrencyDollar size={24} />,
+    icon: <GrDocumentText size={44} />,
     color: "#3B82F6",
   },
   {
-    id: "2",
+    id: 2,
     title: "DESIGN & APPROVAL",
     content: [
       "Secure necessary as-built documents and drawings from the Landlord",
@@ -61,11 +62,12 @@ const steps = [
       "Liaising with required local regulatory authorities for obtaining approvals",
       "Preparation of a detailed project work schedule for client review and approval",
     ],
-    icon: <BsRulers size={24} />,
+    icon: <Image src={DesingPng} alt="Design Icon" width={44} height={44} />,
+
     color: "#EC4899",
   },
   {
-    id: "3",
+    id: 3,
     title: "FIT-OUT WORKS",
     content: [
       "Survey, mobilization, protection and HSE measures",
@@ -74,11 +76,11 @@ const steps = [
       "Partition, ceiling and wall finishes and fixtures",
       "Glass, metal, joinery and loose furniture installations",
     ],
-    icon: <BsBuilding size={24} />,
+    icon: <BsFillBuildingsFill size={44} />,
     color: "#10B981",
   },
   {
-    id: "4",
+    id: 4,
     title: "CLOSE-OUT & HANDOVER",
     content: [
       "Conduct final inspections with Client and Landlord",
@@ -87,7 +89,7 @@ const steps = [
       "Prepare and submit all As-built / warranty documents",
       "Ensure safe and timely occupancy of the premises by the client",
     ],
-    icon: <FaHandshake size={24} />,
+    icon: <FaHandshake size={44} />,
     color: "#F59E0B",
   },
 ];
@@ -113,7 +115,7 @@ const DecorativePattern = ({ className = "" }) => (
 );
 
 interface Step {
-  id: string;
+  id: number;
   title: string;
   content: string[];
   icon: ReactNode;
@@ -124,17 +126,33 @@ interface TimelineStepProps {
   step: Step;
   isEven: boolean;
   isLast: boolean;
+  index: number;
 }
 
 const TimelineStep: React.FC<TimelineStepProps> = ({
   step,
   isEven,
   isLast,
+  index,
 }) => {
   const ref = useRef(null);
-  const lineRef = useRef(null);
+  const contentRef = useRef(null);
+  const iconRef = useRef(null);
+  const topLineRef = useRef(null);
+  const bottomLineRef = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const lineInView = useInView(lineRef, { once: true, amount: 0.1 });
+  const topLineInView = useInView(topLineRef, { once: true, amount: 0.1 });
+  const bottomLineInView = useInView(bottomLineRef, {
+    once: true,
+    amount: 0.1,
+  });
+
+  // Determine if this is step 2 or 3 (index 1 or 2)
+  const isMiddleIcon = index === 1 || index === 2;
+  // First step only has bottom line
+  const isFirstStep = index === 0;
+  // Last step only has top line
+  const isLastStep = index === steps.length - 1;
 
   return (
     <motion.div
@@ -142,30 +160,57 @@ const TimelineStep: React.FC<TimelineStepProps> = ({
       variants={stepVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className={`flex flex-col md:flex-row items-center gap-6 md:gap-10 mb-16 last:mb-0 ${
+      className={`flex flex-col md:flex-row items-stretch gap-6 md:gap-10 mb-16 last:mb-0 ${
         isEven ? "md:flex-row-reverse" : ""
       }`}
     >
-      {/* Timeline line and circle */}
+      {/* Timeline line and icon container - now using items-stretch */}
       <div className="flex flex-col items-center">
-        <motion.div
-          className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10"
-          style={{ backgroundColor: step.color }}
-          whileHover={{ scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        >
-          {step.icon}
-        </motion.div>
-
-        {!isLast && (
+        {/* Top line - for all steps except the first */}
+        {!isFirstStep && (
           <motion.div
-            ref={lineRef}
-            className="w-1 bg-gray-200 h-32 md:h-40 relative overflow-hidden"
+            ref={topLineRef}
+            className="w-1 bg-gray-200 relative overflow-hidden"
+            style={{
+              height: isMiddleIcon ? "6rem" : "3rem",
+            }}
           >
             <motion.div
               className="absolute top-0 left-0 right-0 bg-blue-500"
               initial={{ height: 0 }}
-              animate={lineInView ? { height: "100%" } : { height: 0 }}
+              animate={topLineInView ? { height: "100%" } : { height: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              style={{ backgroundColor: step.color }}
+            />
+          </motion.div>
+        )}
+
+        {/* Icon - now with flex-grow to match content height */}
+        <motion.div
+          ref={iconRef}
+          className="w-16 flex-grow rounded-md flex items-center justify-center shadow-lg z-10"
+          style={{ backgroundColor: step.color, minHeight: "100%" }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <div className="flex flex-col items-center justify-center py-6">
+            {step.icon}
+          </div>
+        </motion.div>
+
+        {/* Bottom line - for all steps except the last */}
+        {!isLastStep && (
+          <motion.div
+            ref={bottomLineRef}
+            className="w-1 bg-gray-200 relative overflow-hidden"
+            style={{
+              height: isMiddleIcon ? "6rem" : "3rem",
+            }}
+          >
+            <motion.div
+              className="absolute top-0 left-0 right-0 bg-blue-500"
+              initial={{ height: 0 }}
+              animate={bottomLineInView ? { height: "100%" } : { height: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               style={{ backgroundColor: step.color }}
             />
@@ -175,12 +220,12 @@ const TimelineStep: React.FC<TimelineStepProps> = ({
 
       {/* Content */}
       <div
+        ref={contentRef}
         className={`bg-white rounded-xl p-6 shadow-md w-full md:w-3/4 border border-gray-100 hover:shadow-lg transition-shadow duration-300 ${
           isEven ? "md:text-right" : "md:text-left"
         }`}
       >
         <div className="flex items-center gap-4 mb-4 justify-start">
-          
           <h3 className="text-xl font-bold text-black">{step.title}</h3>
         </div>
         <ul
@@ -188,8 +233,8 @@ const TimelineStep: React.FC<TimelineStepProps> = ({
             isEven ? "text-left md:text-right" : "text-left md:text-left"
           }`}
         >
-          {step.content.map((item, index) => (
-            <li key={index} className="flex items-start gap-2">
+          {step.content.map((item, idx) => (
+            <li key={idx} className="flex items-start gap-2">
               <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 flex-shrink-0"></div>
               <p className="text-gray-700 text-left">{item}</p>
             </li>
@@ -251,6 +296,7 @@ export default function Timeline() {
               step={step}
               isEven={index % 2 === 1}
               isLast={index === steps.length - 1}
+              index={index}
             />
           ))}
         </motion.div>

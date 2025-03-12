@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./logo";
 import Image from "next/image";
+import FooterLogo from "./footerLogo.jpeg";
 
 export default function Footer() {
   return (
@@ -25,7 +26,12 @@ export default function Footer() {
           {/* Logo Section */}
           <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0">
             <div className="mb-4">
-              <Logo />
+            <Image 
+                src="/footerLogo.jpeg" 
+                width={65} 
+                height={65} 
+                alt="Al Misbah Design Logo" 
+              />
             </div>
             <p className="text-sm text-gray-600">
               Al Misbah excels in interior and exhibition design, delivering
@@ -36,32 +42,44 @@ export default function Footer() {
 
           {/* Links Section */}
           <div className="w-full md:w-1/3 lg:w-1/4 space-y-4">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
-              Company
-            </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="text-gray-600 hover:text-indigo-600 transition duration-300" href="#about">
+                <a
+                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
+                  href="#about"
+                >
                   About Us
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-indigo-600 transition duration-300" href="/contact">
+                <a
+                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
+                  href="/contact"
+                >
                   Contact Us
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-indigo-600 transition duration-300" href="#workflows">
+                <a
+                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
+                  href="#workflows"
+                >
                   Workflow
                 </a>
               </li>
               <li>
-                <Link className="text-gray-600 hover:text-indigo-600 transition duration-300" href="/gallery">
+                <Link
+                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
+                  href="/gallery"
+                >
                   Project Gallery
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-600 hover:text-indigo-600 transition duration-300" href="#services">
+                <Link
+                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
+                  href="#services"
+                >
                   Services
                 </Link>
               </li>

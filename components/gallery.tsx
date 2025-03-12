@@ -10,7 +10,6 @@ type GalleryProps = {
 };
 
 const Gallery: FC<GalleryProps> = ({ images }) => {
-  // Animation variants
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
@@ -19,6 +18,8 @@ const Gallery: FC<GalleryProps> = ({ images }) => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
+
+  console.log(images, "Images in the gallery component");
 
   return (
     <section className="relative overflow-hidden bg-white bg-opacity-95">
@@ -62,7 +63,9 @@ const Gallery: FC<GalleryProps> = ({ images }) => {
                         className="rounded-lg object-cover w-full h-full"
                         src={image.src}
                         alt={image.alt}
-                        fill
+                        width={400}  
+                        height={300}
+                        unoptimized 
                       />
                     </div>
                   </Link>

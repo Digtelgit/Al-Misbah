@@ -97,6 +97,265 @@ const allImages = [
     alt: "Image 2",
     hoverText: "ROVE HOTEL",
   },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis1.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis2.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis3.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis4.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis5.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis6.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis7.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis8.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis9.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "4",
+    src: "/images/gallery/Publicis10.jpeg",
+    alt: "Image 3",
+    hoverText: "Publicis Sapient Office",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses1.jpg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses2.jpg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses3.jpg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses4.jpg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses5.jpeg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses6.jpg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses7.jpg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id: "5",
+    src: "/images/gallery/Esproses8.jpg",
+    alt: "Image 3",
+    hoverText: "Esproses Cafe",
+  },
+  {
+    id:"6",
+    src:"/images/gallery/Otaku1.jpg",
+    alt:"Image 6",
+    hoverText:"Otaku Restaurant"
+  },
+  {
+    id:"6",
+    src:"/images/gallery/Otaku2.jpg",
+    alt:"Image 6",
+    hoverText:"Otaku Restaurant"
+  },
+  {
+    id:"6",
+    src:"/images/gallery/Otaku3.jpg",
+    alt:"Image 6",
+    hoverText:"Otaku Restaurant"
+  },
+  {
+    id:"6",
+    src:"/images/gallery/Otaku4.jpg",
+    alt:"Image 6",
+    hoverText:"Otaku Restaurant"
+  },
+  {
+    id:"6",
+    src:"/images/gallery/Otaku5.jpg",
+    alt:"Image 6",
+    hoverText:"Otaku Restaurant"
+  },
+  {
+    id:"6",
+    src:"/images/gallery/Otaku6.jpg",
+    alt:"Image 6",
+    hoverText:"Otaku Restaurant"
+  },
+  {
+    id:"7",
+    src:"/images/gallery/Bournhall1.jpg",
+    alt:"Image 7",
+    hoverText:"Bournhall Clinic"
+  },
+  {
+    id:"7",
+    src:"/images/gallery/Bournhall2.jpg",
+    alt:"Image 7",
+    hoverText:"Bournhall Clinic"
+  },
+  {
+    id:"7",
+    src:"/images/gallery/Bournhall3.jpg",
+    alt:"Image 7",
+    hoverText:"Bournhall Clinic"
+  },
+  {
+    id:"7",
+    src:"/images/gallery/Bournhall4.jpg",
+    alt:"Image 7",
+    hoverText:"Bournhall Clinic"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building1.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building2.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building3.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building4.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building5.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building6.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building7.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"8",
+    src:"/images/gallery/Building8.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:"9",
+    src:"/images/gallery/Private1.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
+  },
+  {
+    id:"9",
+    src:"/images/gallery/Private2.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
+  },
+  {
+    id:"9",
+    src:"/images/gallery/Private3.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
+  },
+  {
+    id:"9",
+    src:"/images/gallery/Private4.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
+  },
+  {
+    id:"9",
+    src:"/images/gallery/Private5.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
+  },
+  {
+    id:"9",
+    src:"/images/gallery/Private6.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
+  },
+  {
+    id:"9",
+    src:"/images/gallery/Private7.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
+  },
+
 ];
 
 const Gallery = () => {

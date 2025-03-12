@@ -10,12 +10,14 @@ import Marquee from "@/components/marquee";
 import Image from "next/image";
 import Header from "@/components/ui/header";
 import Timeline from "@/components/ProcessSteps";
-import SubCompanyBar from "@/components/HorizontalBar";
+import { hover } from "framer-motion";
+
 
 export const metadata = {
   title: "Al Misbah - Home",
   description: "Al Misbah Interior Design",
 };
+
 
 const images = [
   {
@@ -35,7 +37,44 @@ const images = [
     src: "/images/gallery/rove1.jpeg",
     alt: "Image 3",
     hoverText: "ROVE HOTEL",
+  },
+  {
+    id:4,
+    src:"/images/gallery/Publicis1.jpeg",
+    alt:"Image 4",
+    hoverText:"Publicis Sapient Office"
+  },
+  {
+    id:5,
+    src:"/images/gallery/Esproses1.jpg",
+    alt:"Image 5",
+    hoverText:"Esproses Cafe"
+  },
+  {
+    id:6,
+    src:"/images/gallery/Otaku1.jpg",
+    alt:"Image 6",
+    hoverText:"Otaku Restaurant"
+  },
+  {
+    id:7,
+    src:"/images/gallery/Bournhall1.jpg",
+    alt:"Image 7",
+    hoverText:"Bournhall Clinic"
+  },
+  {
+    id:8,
+    src:"/images/gallery/Building1.jpeg",
+    alt:"Image 8",
+    hoverText:"Building Khalifa City"
+  },
+  {
+    id:9,
+    src:"/images/gallery/Private1.jpg",
+    alt:"Image 9",
+    hoverText:"Private villa , Dubai and Sharjah"
   }
+
 ];
 
 const Home: FC = () => {
