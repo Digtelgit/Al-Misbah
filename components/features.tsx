@@ -87,7 +87,7 @@ export default function SpecialtiesSection() {
       color: "#4361ee",
     },
     {
-      title: "Interior Design",
+      title: "Interior Designs",
       description:
         "Providing proactive design solutions for today and tomorrow's built environments.",
       icon: FaLightbulb,

@@ -53,6 +53,14 @@ const DecorativePattern = ({ className = "" }) => (
   </div>
 );
 
+// Diamond-shaped indicator component
+const DiamondIndicator = ({ active, onClick }) => (
+  <div 
+    className={`diamond-indicator ${active ? 'active' : ''}`} 
+    onClick={onClick}
+  />
+);
+
 export default function HeroHome() {
   return (
     <section
@@ -60,7 +68,7 @@ export default function HeroHome() {
     >
       <DecorativePattern className="top-0 left-2 w-96 h-96 -translate-y-2/4 -translate-x-1/3" />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="relative w-full">
         <div className="py-12 md:py-20">
           <div className="pb-12 text-center md:pb-16">
             <h1
@@ -100,17 +108,17 @@ export default function HeroHome() {
             </div>
           </div>
 
-          {/* Slideshow Section */}
-          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-2xl glow-effect">
+          {/* Full-screen Slideshow Section */}
+          <div className="relative w-full h-screen overflow-hidden shadow-2xl">
             <Slide
               duration={5000}
               transitionDuration={800}
               autoplay
               infinite
-              indicators={false}
+              indicators={true}
               arrows={true}
               prevArrow={
-                <div className="absolute z-10 left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 rounded-full cursor-pointer hover:bg-white/50 transition-all">
+                <div className="absolute z-10 left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 rounded-full cursor-pointer hover:bg-white/50 transition-all">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -127,7 +135,7 @@ export default function HeroHome() {
                 </div>
               }
               nextArrow={
-                <div className="absolute z-10 right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 backdrop-blur-sm rounded-full cursor-pointer hover:bg-white/50 transition-all">
+                <div className="absolute z-10 right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 backdrop-blur-sm rounded-full cursor-pointer hover:bg-white/50 transition-all">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -143,26 +151,33 @@ export default function HeroHome() {
                   </svg>
                 </div>
               }
+              customIndicator={(index, active, onChange) => (
+                <DiamondIndicator 
+                  active={active} 
+                  key={index} 
+                  onClick={() => onChange(index)}
+                />
+              )}
+              indicatorClassName="diamond-indicator-container"
             >
               {slides.map((slide, index) => (
                 <div
                   key={index}
-                  className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
+                  className="relative w-full h-screen"
                 >
                   <Image
                     src={slide.image}
                     alt={slide.text}
                     fill
-                    className="rounded-xl object-cover"
+                    className="object-cover w-full"
                     priority={index === 0}
+                    sizes="100vw"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="px-6 w-full max-w-5xl">
-                      <div className="text-center">
-                        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wider font-variant-small-caps shadow-text transition-transform duration-500 transform hover:scale-105">
-                          {slide.text}
-                        </h2>
-                      </div>
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-center pb-20">
+                    <div className="bg-black/40 backdrop-blur-sm px-6 py-4 rounded-lg">
+                      <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-light tracking-wider">
+                        {slide.text}
+                      </h2>
                     </div>
                   </div>
                 </div>
@@ -174,6 +189,30 @@ export default function HeroHome() {
 
       {/* Tailwind Styles for Effects */}
       <style jsx>{`
+        .diamond-indicator-container {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          position: absolute;
+          bottom: 20px;
+          width: 100%;
+          z-index: 20;
+        }
+
+        .diamond-indicator {
+          width: 12px;
+          height: 12px;
+          background-color: rgba(255, 255, 255, 0.5);
+          transform: rotate(45deg);
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .diamond-indicator.active {
+          background-color: white;
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
         .glow-effect {
           position: relative;
         }

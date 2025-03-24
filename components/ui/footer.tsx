@@ -26,11 +26,11 @@ export default function Footer() {
           {/* Logo Section */}
           <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0">
             <div className="mb-4">
-            <Image 
-                src="/footerLogo.jpeg" 
-                width={65} 
-                height={65} 
-                alt="Al Misbah Design Logo" 
+              <Image
+                src="/footerLogo.jpeg"
+                width={65}
+                height={65}
+                alt="Al Misbah Design Logo"
               />
             </div>
             <p className="text-sm text-gray-600">
@@ -80,7 +80,7 @@ export default function Footer() {
                   className="text-gray-600 hover:text-indigo-600 transition duration-300"
                   href="#services"
                 >
-                  Services
+                  Specialities
                 </Link>
               </li>
             </ul>

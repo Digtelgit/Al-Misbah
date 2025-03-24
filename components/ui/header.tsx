@@ -25,12 +25,12 @@ export default function Header() {
         <div className="relative flex h-20 items-center justify-between bg-white px-6 md:px-10 lg:px-16">
           {/* Site branding */}
           <div className="flex items-center z-50">
-            <Logo className="h-10 w-auto" />
+            <Logo className="h-12 w-auto" />
           </div>
 
           {/* Desktop Navigation - Added here */}
           <nav className="hidden md:flex items-center justify-center">
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-16">
               <li>
                 <Link 
                   href="#about" 
@@ -90,15 +90,15 @@ export default function Header() {
             <div className="hidden sm:flex items-center space-x-6">
               <div className="flex flex-col items-center">
                 <Link href="#zaartech">
-                  <Image src="/images/ZaarTechLogo.png" alt="Zaartech" width={40} height={40} />
+                  <Image src="/images/ZaarTechLogo.png" alt="Zaartech" width={60} height={85} />
                 </Link>
-                {/* <span className="text-xs text-gray-600">Zaar Interiors</span> */}
+                
               </div>
               <div className="flex flex-col items-center">
                 <Link href="#alibhar">
-                  <Image src="/images/AlIbharLogo.png" alt="Alibhar" width={40} height={40} />
+                  <Image src="/images/AlIbharLogo.png" alt="Alibhar" width={55} height={55} />
                 </Link>
-                {/* <span className="text-xs text-gray-600">Alibhar</span> */}
+                
               </div>
             </div>
           </div>

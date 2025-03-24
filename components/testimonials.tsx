@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import AboutUsImage from "@/public/images/aboutUs.jpg";
+import SlotCounter from "react-slot-counter";
 
 export default function AboutUs() {
   // Animation variants
@@ -29,6 +30,24 @@ export default function AboutUs() {
       opacity: 1,
       scale: 1,
       transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const statsVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { delay: 0.6, duration: 0.5, staggerChildren: 0.15 },
+    },
+  };
+
+  const statItemVariants = {
+    hidden: { opacity: 0, x: 15 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.4 },
     },
   };
 
@@ -87,8 +106,11 @@ export default function AboutUs() {
             </motion.div>
           </motion.div>
 
-          {/* Image Side with responsive decorative elements */}
-          <motion.div className="w-full lg:w-1/2 relative mt-10 lg:mt-0" variants={imageVariants}>
+          {/* Image Side with improved responsive stats alignment */}
+          <motion.div
+            className="w-full lg:w-1/2 relative mt-10 lg:mt-0"
+            variants={imageVariants}
+          >
             <div className="relative z-10 mx-4 sm:mx-8 lg:mx-0">
               {/* Decorative frame - reduced dimensions on smaller screens */}
               <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 border-2 border-indigo-200 rounded-xl"></div>
@@ -106,30 +128,84 @@ export default function AboutUs() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/20 to-transparent opacity-60"></div>
               </div>
 
-              {/* Stats card - adjusted positioning for responsiveness */}
+              {/* Responsive approach for stats positioning */}
+              {/* On small screens (mobile), stats appear as a row under the image */}
               <motion.div
-                className="absolute -bottom-4 sm:-bottom-6 md:-bottom-8 -right-4 sm:-right-6 md:-right-8 bg-white p-3 sm:p-4 rounded-lg shadow-xl"
-                variants={{
-                  hidden: { opacity: 0, x: 20 },
-                  visible: {
-                    opacity: 1,
-                    x: 0,
-                    transition: { delay: 0.6, duration: 0.5 },
-                  },
-                }}
+                className="flex lg:hidden justify-center gap-2 sm:gap-4 mt-4"
+                variants={statsVariants}
               >
-                <div className="flex gap-4 sm:gap-6">
-                  <div className="text-center">
-                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-600">
-                      Trusted
-                    </p>
-                    <p className="text-xs sm:text-sm text-gray-600">By Many Clients</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-600">100%</p>
-                    <p className="text-xs sm:text-sm text-gray-600">Client Satisfaction</p>
-                  </div>
-                </div>
+                {/* Stat 1: 20+ Years - small screen */}
+                <motion.div
+                  className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
+                  variants={statItemVariants}
+                >
+                  <SlotCounter
+                    value={20}
+                    duration={1.5}
+                    className="text-2xl font-bold text-indigo-600"
+                  />
+                  {/* <p className="text-lg sm:text-xl font-bold text-indigo-600">20+</p> */}
+                  <p className="text-xs text-gray-600 text-center">Years</p>
+                </motion.div>
+
+                {/* Stat 2: 1000+ Projects - small screen */}
+                <motion.div
+                  className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
+                  variants={statItemVariants}
+                >
+                  <p className="text-lg sm:text-xl font-bold text-indigo-600">
+                    1000+
+                  </p>
+                  <p className="text-xs text-gray-600 text-center">Projects</p>
+                </motion.div>
+
+                {/* Stat 3: 100% Customer Satisfaction - small screen */}
+                <motion.div
+                  className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
+                  variants={statItemVariants}
+                >
+                  <p className="text-lg sm:text-xl font-bold text-indigo-600">
+                    100%
+                  </p>
+                  <p className="text-xs text-gray-600 text-center">
+                    Satisfaction
+                  </p>
+                </motion.div>
+              </motion.div>
+
+              {/* On larger screens (desktop), stats appear vertically on the right side */}
+              <motion.div
+                className="hidden lg:flex flex-col absolute top-0 -right-12 h-full py-8 justify-center gap-4"
+                variants={statsVariants}
+              >
+                {/* Stat 1: 20+ Years - large screen */}
+                <motion.div
+                  className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
+                  variants={statItemVariants}
+                >
+                  <p className="text-2xl font-bold text-indigo-600"> 20+ </p>
+                  <p className="text-xs text-gray-600 text-center"> Years </p>
+                </motion.div>
+
+                {/* Stat 2: 1000+ Projects - large screen */}
+                <motion.div
+                  className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
+                  variants={statItemVariants}
+                >
+                  <p className="text-2xl font-bold text-indigo-600">1000+</p>
+                  <p className="text-xs text-gray-600 text-center">Projects</p>
+                </motion.div>
+
+                {/* Stat 3: 100% Customer Satisfaction - large screen */}
+                <motion.div
+                  className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
+                  variants={statItemVariants}
+                >
+                  <p className="text-2xl font-bold text-indigo-600">100%</p>
+                  <p className="text-xs text-gray-600 text-center">
+                    Satisfaction
+                  </p>
+                </motion.div>
               </motion.div>
             </div>
 
