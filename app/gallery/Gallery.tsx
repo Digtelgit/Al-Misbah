@@ -206,168 +206,169 @@ const allImages = [
     hoverText: "Esproses Cafe",
   },
   {
-    id:"6",
-    src:"/images/gallery/Otaku1.jpg",
-    alt:"Image 6",
-    hoverText:"Otaku Restaurant"
+    id: "6",
+    src: "/images/gallery/Otaku1.jpg",
+    alt: "Image 6",
+    hoverText: "Otaku Restaurant",
   },
   {
-    id:"6",
-    src:"/images/gallery/Otaku2.jpg",
-    alt:"Image 6",
-    hoverText:"Otaku Restaurant"
+    id: "6",
+    src: "/images/gallery/Otaku2.jpg",
+    alt: "Image 6",
+    hoverText: "Otaku Restaurant",
   },
   {
-    id:"6",
-    src:"/images/gallery/Otaku3.jpg",
-    alt:"Image 6",
-    hoverText:"Otaku Restaurant"
+    id: "6",
+    src: "/images/gallery/Otaku3.jpg",
+    alt: "Image 6",
+    hoverText: "Otaku Restaurant",
   },
   {
-    id:"6",
-    src:"/images/gallery/Otaku4.jpg",
-    alt:"Image 6",
-    hoverText:"Otaku Restaurant"
+    id: "6",
+    src: "/images/gallery/Otaku4.jpg",
+    alt: "Image 6",
+    hoverText: "Otaku Restaurant",
   },
   {
-    id:"6",
-    src:"/images/gallery/Otaku5.jpg",
-    alt:"Image 6",
-    hoverText:"Otaku Restaurant"
+    id: "6",
+    src: "/images/gallery/Otaku5.jpg",
+    alt: "Image 6",
+    hoverText: "Otaku Restaurant",
   },
   {
-    id:"6",
-    src:"/images/gallery/Otaku6.jpg",
-    alt:"Image 6",
-    hoverText:"Otaku Restaurant"
+    id: "6",
+    src: "/images/gallery/Otaku6.jpg",
+    alt: "Image 6",
+    hoverText: "Otaku Restaurant",
   },
   {
-    id:"7",
-    src:"/images/gallery/Bournhall1.jpg",
-    alt:"Image 7",
-    hoverText:"Bournhall Clinic"
+    id: "7",
+    src: "/images/gallery/Bournhall1.jpg",
+    alt: "Image 7",
+    hoverText: "Bournhall Clinic",
   },
   {
-    id:"7",
-    src:"/images/gallery/Bournhall2.jpg",
-    alt:"Image 7",
-    hoverText:"Bournhall Clinic"
+    id: "7",
+    src: "/images/gallery/Bournhall2.jpg",
+    alt: "Image 7",
+    hoverText: "Bournhall Clinic",
   },
   {
-    id:"7",
-    src:"/images/gallery/Bournhall3.jpg",
-    alt:"Image 7",
-    hoverText:"Bournhall Clinic"
+    id: "7",
+    src: "/images/gallery/Bournhall3.jpg",
+    alt: "Image 7",
+    hoverText: "Bournhall Clinic",
   },
   {
-    id:"7",
-    src:"/images/gallery/Bournhall4.jpg",
-    alt:"Image 7",
-    hoverText:"Bournhall Clinic"
+    id: "7",
+    src: "/images/gallery/Bournhall4.jpg",
+    alt: "Image 7",
+    hoverText: "Bournhall Clinic",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building1.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building1.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building2.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building2.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building3.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building3.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building4.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building4.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building5.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building5.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building6.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building6.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building7.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building7.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"8",
-    src:"/images/gallery/Building8.jpeg",
-    alt:"Image 8",
-    hoverText:"Building Khalifa City"
+    id: "8",
+    src: "/images/gallery/Building8.jpeg",
+    alt: "Image 8",
+    hoverText: "Building Khalifa City",
   },
   {
-    id:"9",
-    src:"/images/gallery/Private1.jpg",
-    alt:"Image 9",
-    hoverText:"Private villa , Dubai and Sharjah"
+    id: "9",
+    src: "/images/gallery/Private1.jpg",
+    alt: "Image 9",
+    hoverText: "Private villa , Dubai and Sharjah",
   },
   {
-    id:"9",
-    src:"/images/gallery/Private2.jpg",
-    alt:"Image 9",
-    hoverText:"Private villa , Dubai and Sharjah"
+    id: "9",
+    src: "/images/gallery/Private2.jpg",
+    alt: "Image 9",
+    hoverText: "Private villa , Dubai and Sharjah",
   },
   {
-    id:"9",
-    src:"/images/gallery/Private3.jpg",
-    alt:"Image 9",
-    hoverText:"Private villa , Dubai and Sharjah"
+    id: "9",
+    src: "/images/gallery/Private3.jpg",
+    alt: "Image 9",
+    hoverText: "Private villa , Dubai and Sharjah",
   },
   {
-    id:"9",
-    src:"/images/gallery/Private4.jpg",
-    alt:"Image 9",
-    hoverText:"Private villa , Dubai and Sharjah"
+    id: "9",
+    src: "/images/gallery/Private4.jpg",
+    alt: "Image 9",
+    hoverText: "Private villa , Dubai and Sharjah",
   },
   {
-    id:"9",
-    src:"/images/gallery/Private5.jpg",
-    alt:"Image 9",
-    hoverText:"Private villa , Dubai and Sharjah"
+    id: "9",
+    src: "/images/gallery/Private5.jpg",
+    alt: "Image 9",
+    hoverText: "Private villa , Dubai and Sharjah",
   },
   {
-    id:"9",
-    src:"/images/gallery/Private6.jpg",
-    alt:"Image 9",
-    hoverText:"Private villa , Dubai and Sharjah"
+    id: "9",
+    src: "/images/gallery/Private6.jpg",
+    alt: "Image 9",
+    hoverText: "Private villa , Dubai and Sharjah",
   },
   {
-    id:"9",
-    src:"/images/gallery/Private7.jpg",
-    alt:"Image 9",
-    hoverText:"Private villa , Dubai and Sharjah"
+    id: "9",
+    src: "/images/gallery/Private7.jpg",
+    alt: "Image 9",
+    hoverText: "Private villa , Dubai and Sharjah",
   },
-
 ];
 
 const Gallery = () => {
   const searchParams = useSearchParams();
   const [filteredImages, setFilteredImages] = useState<ImageData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [projectLocation, setProjectLocation] = useState<string | null>(null);
 
   useEffect(() => {
     const projectId = searchParams.get("project");
     if (projectId) {
       const filtered = allImages.filter((img) => img.id === projectId);
       setFilteredImages(filtered);
+      setProjectLocation(filtered[0].hoverText);
     } else {
       // Optional: show all images if no project ID is specified
       setFilteredImages(allImages);
@@ -385,7 +386,11 @@ const Gallery = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl font-bold text-gray-100">Project Gallery</h2>
-          <p className="text-gray-400 mt-2">Showcasing our best projects</p>
+          {projectLocation && (
+            <h3 className="text-2xl font-semibold text-blue-800 text-center mb-4">
+              {projectLocation}
+            </h3>
+          )}
         </motion.div>
 
         {isLoading ? (
@@ -423,11 +428,11 @@ const Gallery = () => {
                   height={300}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                {/* <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <h3 className="text-lg font-semibold text-white">
                     {image.hoverText}
                   </h3>
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </motion.div>

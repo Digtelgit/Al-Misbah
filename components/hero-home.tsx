@@ -53,10 +53,17 @@ const DecorativePattern = ({ className = "" }) => (
   </div>
 );
 
-// Diamond-shaped indicator component
+// Diamond-shaped indicator component with more sophisticated styling
 const DiamondIndicator = ({ active, onClick }) => (
   <div 
-    className={`diamond-indicator ${active ? 'active' : ''}`} 
+    className={`
+      diamond-indicator 
+      transform rotate-45 
+      transition-all duration-300 ease-in-out 
+      ${active 
+        ? 'bg-white scale-125 shadow-lg border-2 border-blue-300' 
+        : 'bg-white/50 hover:bg-white/75 scale-100'
+      }`} 
     onClick={onClick}
   />
 );
@@ -75,7 +82,7 @@ export default function HeroHome() {
               className="font-sans text-blue-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-extrabold tracking-tight leading-none px-2"
               data-aos="fade-up"
             >
-              Turnkey Solutions for the Built Environment
+              Turnkey Solutions for <br /> the Built Environment
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
@@ -173,9 +180,9 @@ export default function HeroHome() {
                     priority={index === 0}
                     sizes="100vw"
                   />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-center pb-20">
-                    <div className="bg-black/40 backdrop-blur-sm px-6 py-4 rounded-lg">
-                      <h2 className="text-white text-xl sm:text-2xl md:text-3xl font-light tracking-wider">
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-center pb-16">
+                    <div className="bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg">
+                      <h2 className="text-white text-base sm:text-xl md:text-2xl font-extralight tracking-wide opacity-90">
                         {slide.text}
                       </h2>
                     </div>
@@ -192,9 +199,9 @@ export default function HeroHome() {
         .diamond-indicator-container {
           display: flex;
           justify-content: center;
-          gap: 10px;
+          gap: 12px;
           position: absolute;
-          bottom: 20px;
+          bottom: 40px;
           width: 100%;
           z-index: 20;
         }
@@ -203,67 +210,8 @@ export default function HeroHome() {
           width: 12px;
           height: 12px;
           background-color: rgba(255, 255, 255, 0.5);
-          transform: rotate(45deg);
           transition: all 0.3s ease;
           cursor: pointer;
-        }
-
-        .diamond-indicator.active {
-          background-color: white;
-          box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-        }
-
-        .glow-effect {
-          position: relative;
-        }
-
-        .glow-effect::before {
-          content: "";
-          position: absolute;
-          top: -10px;
-          left: -10px;
-          right: -10px;
-          bottom: -10px;
-          background: radial-gradient(
-            circle,
-            rgba(59, 130, 246, 0.4) 0%,
-            rgba(59, 130, 246, 0.2) 50%,
-            rgba(59, 130, 246, 0) 100%
-          );
-          border-radius: 20px;
-          z-index: -1;
-          animation: glow 3s infinite ease-in-out;
-        }
-
-        @keyframes glow {
-          0% {
-            opacity: 0.6;
-          }
-          50% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0.6;
-          }
-        }
-
-        .shadow-text {
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .progress-indicator {
-          animation: progress 5000ms linear infinite;
-          transform-origin: left;
-          transform: scaleX(0);
-        }
-
-        @keyframes progress {
-          0% {
-            transform: scaleX(0);
-          }
-          100% {
-            transform: scaleX(1);
-          }
         }
       `}</style>
     </section>

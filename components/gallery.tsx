@@ -19,8 +19,6 @@ const Gallery: FC<GalleryProps> = ({ images }) => {
     },
   };
 
-  console.log(images, "Images in the gallery component");
-
   return (
     <section className="relative overflow-hidden bg-white bg-opacity-95">
       {/* Background Shape */}
@@ -41,9 +39,12 @@ const Gallery: FC<GalleryProps> = ({ images }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Heading */}
-          <h2 className="font-sans animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.600),theme(colors.indigo.400),theme(colors.gray.500),theme(colors.indigo.500),theme(colors.gray.600))] bg-[length:200%_auto] bg-clip-text pb-8 text-3xl font-semibold text-transparent md:text-4xl text-center">
-            Explore Our Creative Projects
+          <h2 className="font-sans uppercase animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.600),theme(colors.indigo.400),theme(colors.gray.500),theme(colors.indigo.500),theme(colors.gray.600))] bg-[length:200%_auto] bg-clip-text pb-2 text-3xl font-semibold text-transparent md:text-4xl text-center">
+            Project Portfolio
           </h2>
+          <h3 className="font-sans animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.600),theme(colors.indigo.400),theme(colors.gray.500),theme(colors.indigo.500),theme(colors.gray.600))] bg-[length:200%_auto] bg-clip-text pb-6 text-lg font-medium text-transparent md:text-xl text-center">
+            Explore Our Creative Projects
+          </h3>
 
           {/* Centered Image Grid */}
           <div className="flex justify-center">
@@ -63,9 +64,9 @@ const Gallery: FC<GalleryProps> = ({ images }) => {
                         className="rounded-lg object-cover w-full h-full"
                         src={image.src}
                         alt={image.alt}
-                        width={400}  
+                        width={400}
                         height={300}
-                        unoptimized 
+                        unoptimized
                       />
                     </div>
                   </Link>

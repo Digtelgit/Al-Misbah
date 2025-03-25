@@ -1,148 +1,138 @@
 import Link from "next/link";
-import Logo from "./logo";
 import Image from "next/image";
-import FooterLogo from "./footerLogo.jpeg";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-700 border-t border-gray-200">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Footer Illustration - Optional, can be removed for cleaner look */}
+    <footer className="bg-gradient-to-br from-neutral-900 via-[#121212] to-neutral-900 text-gray-300 border-t border-neutral-800">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
+        {/* Subtle Background Texture/Overlay */}
         <div
-          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 w-full max-w-7xl opacity-10"
-          aria-hidden="true"
-        >
-          <Image
-            className="max-w-none"
-            src="/images/footer-illustration.svg"
-            width={1076}
-            height={378}
-            alt="Footer illustration"
-          />
-        </div>
+          className="absolute inset-0 opacity-10 pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%, transparent)",
+            backgroundSize: "40px 40px",
+          }}
+        />
 
         {/* Footer Content */}
-        <div className="flex flex-col md:flex-row justify-between py-12 space-y-8 md:space-y-0">
+        <div className="relative z-10 flex flex-col md:flex-row justify-between py-12 space-y-8 md:space-y-0">
           {/* Logo Section */}
-          <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0">
-            <div className="mb-4">
+          <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0 flex flex-col items-center text-center">
+            <div className="mb-4 transform transition-transform hover:scale-105">
               <Image
-                src="/footerLogo.jpeg"
+                src="/FooterLogoBgRemoved.png"
                 width={65}
                 height={65}
                 alt="Al Misbah Design Logo"
+                className="rounded-xl shadow-lg"
               />
             </div>
-            <p className="text-sm text-gray-600">
-              Al Misbah excels in interior and exhibition design, delivering
-              creative and functional solutions. Our close-knit team transforms
-              client ideas into aesthetically and commercially viable projects.
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Al Misbah excels in interior design, delivering creative and
+              functional solutions.
             </p>
           </div>
 
           {/* Links Section */}
           <div className="w-full md:w-1/3 lg:w-1/4 space-y-4">
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
-                  href="#about"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
-                  href="/contact"
-                >
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
-                  href="#workflows"
-                >
-                  Workflow
-                </a>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
-                  href="/gallery"
-                >
-                  Project Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 hover:text-indigo-600 transition duration-300"
-                  href="#services"
-                >
-                  Specialities
-                </Link>
-              </li>
+            <h3 className="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-3 text-sm">
+              {[
+                { href: "#", label: "Home" },
+                { href: "#about", label: "About Us" },
+                { href: "/contact", label: "Contact Us" },
+                { href: "#workflows", label: "Workflow" },
+                { href: "/gallery", label: "Project Gallery" },
+                { href: "#services", label: "Specialities" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition duration-300 ease-in-out relative group"
+                  >
+                    {link.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+         
           {/* Social Links */}
           <div className="w-full md:w-1/3 lg:w-1/4 space-y-4">
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+            <h3 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">
               Follow Us
             </h3>
-            <ul className="flex space-x-4">
-              <li>
-                <a
-                  className="text-gray-500 hover:text-indigo-600 transition duration-300"
-                  href="#0"
-                  aria-label="Twitter"
-                >
-                  <svg
-                    className="h-6 w-6"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
+            <ul className="flex space-x-4 mt-4">
+              {[
+                {
+                  href: "https://www.facebook.com/profile.php?id=61571961387947",
+                  label: "Facebook",
+                  icon: (
+                    <path d="M16 6.4c-5.4 0-9.78 4.38-9.78 9.78 0 4.88 3.58 8.9 8.26 9.66V17.64h-2.48v-2.86h2.48v-2.18c0-2.46 1.46-3.82 3.7-3.82 1.08 0 2.2.2 2.2.2v2.42h-1.24c-1.22 0-1.6.76-1.6 1.54v1.84h2.72l-.44 2.86h-2.28v7.52c4.68-.76 8.26-4.78 8.26-9.66 0-5.4-4.38-9.78-9.78-9.78z" />
+                  ),
+                },
+                {
+                  href: "https://www.instagram.com/almisbah_group?igsh=cDlmaTV5Y2s4aWpw&utm_source=qr",
+                  label: "Instagram",
+                  icon: (
+                    <svg
+                      id="Layer_1"
+                      viewBox="0 0 128 128"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-name="Layer 1"
+                    >
+                      <path d="m104 8a16 16 0 0 1 16 16v80a16 16 0 0 1 -16 16h-80a16 16 0 0 1 -16-16v-80a16 16 0 0 1 16-16zm0-8h-80a24.07 24.07 0 0 0 -24 24v80a24.07 24.07 0 0 0 24 24h80a24.07 24.07 0 0 0 24-24v-80a24.07 24.07 0 0 0 -24-24z" />
+                      <circle cx="82" cy="46" r="5" />
+                      <path d="m64 48a16 16 0 1 0 16 16 16 16 0 0 0 -16-16zm0 24a8 8 0 1 1 8-8 8 8 0 0 1 -8 8z" />
+                      <rect
+                        fill="none"
+                        height="64"
+                        rx="12"
+                        stroke="#000"
+                       
+                        width="64"
+                        x="32"
+                        y="32"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  href: "https://www.linkedin.com/in/misbah-decor-16b744358/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3Bif%2BZi2QbT8yKHCR2JVZlgg%3D%3D",
+                  label: "LinkedIn",
+                  icon: (
+                    <path d="M27.26 3H4.74A1.74 1.74 0 0 0 3 4.74v22.52A1.74 1.74 0 0 0 4.74 29h22.52A1.74 1.74 0 0 0 29 27.26V4.74A1.74 1.74 0 0 0 27.26 3zM10.6 25.29H7.11V12.99H10.6v12.3zm-1.75-14a2.06 2.06 0 1 1 2.06-2.06 2.06 2.06 0 0 1-2.06 2.06zM25.29 25.29h-3.49v-5.97c0-1.37-.02-3.13-1.91-3.13-1.91 0-2.2 1.49-2.2 3.03v6.07h-3.49V12.99h3.35v1.61h.05a3.68 3.68 0 0 1 3.33-1.83c3.56 0 4.22 2.34 4.22 5.39v6.13z" />
+                  ),
+                },
+              ].map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    className="text-gray-500 hover:text-white transition duration-300 transform hover:scale-110"
+                    aria-label={social.label}
                   >
-                    <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-gray-500 hover:text-indigo-600 transition duration-300"
-                  href="#0"
-                  aria-label="Medium"
-                >
-                  <svg
-                    className="h-6 w-6"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M23 8H9a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1Zm-1.708 3.791-.858.823a.251.251 0 0 0-.1.241V18.9a.251.251 0 0 0 .1.241l.838.823v.181h-4.215v-.181l.868-.843c.085-.085.085-.11.085-.241v-4.887l-2.41 6.131h-.329l-2.81-6.13V18.1a.567.567 0 0 0 .156.472l1.129 1.37v.181h-3.2v-.181l1.129-1.37a.547.547 0 0 0 .146-.472v-4.749a.416.416 0 0 0-.138-.351l-1-1.209v-.181H13.8l2.4 5.283 2.122-5.283h2.971l-.001.181Z" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-gray-500 hover:text-indigo-600 transition duration-300"
-                  href="#0"
-                  aria-label="Github"
-                >
-                  <svg
-                    className="h-6 w-6"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z" />
-                  </svg>
-                </a>
-              </li>
+                    <svg
+                      className="h-6 w-6"
+                      viewBox="0 0 32 32"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                    >
+                      {social.icon}
+                    </svg>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Copyright Line */}
-        <div className="border-t border-gray-200 py-6">
+        <div className="border-t border-neutral-800 py-6 mt-4">
           <p className="text-sm text-gray-500 text-center">
             © {new Date().getFullYear()} Al Misbah Design. All rights reserved.
           </p>

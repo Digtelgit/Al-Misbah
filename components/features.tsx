@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 
 // Import your images
-import OurServicesImage from "@/public/images/OurServices.jpg";
+import OurServicesImage from "@/public/images/OurServices1.jpg";
 
 export default function SpecialtiesSection() {
   const containerRef = useRef(null);
@@ -241,7 +241,9 @@ export default function SpecialtiesSection() {
 
           <motion.p className="text-gray-600 text-lg" variants={fadeInUp}>
             We are a group of companies excelling in interior design, decor, and
-            spatial transformation services.
+            spatial transformation services. Our close-knit team brings client
+            ideas to life, crafting aesthetically and commercially viable
+            projects that redefine spaces with creativity and precision.
           </motion.p>
         </motion.div>
 

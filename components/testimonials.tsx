@@ -100,9 +100,12 @@ export default function AboutUs() {
 
             {/* Call to action */}
             <motion.div className="mt-6 md:mt-8" variants={fadeInVariants}>
-              <button className="px-5 py-2.5 sm:px-6 sm:py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1">
+              <a
+                href="#services"
+                className="px-5 py-2.5 sm:px-6 sm:py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
+              >
                 Discover Our Services
-              </button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -142,9 +145,9 @@ export default function AboutUs() {
                   <SlotCounter
                     value={20}
                     duration={1.5}
-                    className="text-2xl font-bold text-indigo-600"
+                    charClassName="text-2xl font-bold text-indigo-600"
+                    sequentialAnimation={true}
                   />
-                  {/* <p className="text-lg sm:text-xl font-bold text-indigo-600">20+</p> */}
                   <p className="text-xs text-gray-600 text-center">Years</p>
                 </motion.div>
 
@@ -153,9 +156,13 @@ export default function AboutUs() {
                   className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
                   variants={statItemVariants}
                 >
-                  <p className="text-lg sm:text-xl font-bold text-indigo-600">
-                    1000+
-                  </p>
+                  <SlotCounter
+                    value={1000}
+                    duration={1.5}
+                    charClassName="text-2xl font-bold text-indigo-600"
+                    sequentialAnimation={true}
+                    padStartLen={3}
+                  />
                   <p className="text-xs text-gray-600 text-center">Projects</p>
                 </motion.div>
 
@@ -164,9 +171,13 @@ export default function AboutUs() {
                   className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
                   variants={statItemVariants}
                 >
-                  <p className="text-lg sm:text-xl font-bold text-indigo-600">
-                    100%
-                  </p>
+                  <SlotCounter
+                    value={100}
+                    duration={1.5}
+                    charClassName="text-2xl font-bold text-indigo-600"
+                    sequentialAnimation={true}
+                    padStartLen={3}
+                  />
                   <p className="text-xs text-gray-600 text-center">
                     Satisfaction
                   </p>
@@ -183,8 +194,13 @@ export default function AboutUs() {
                   className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
                   variants={statItemVariants}
                 >
-                  <p className="text-2xl font-bold text-indigo-600"> 20+ </p>
-                  <p className="text-xs text-gray-600 text-center"> Years </p>
+                  <SlotCounter
+                    value={20}
+                    duration={1.5}
+                    charClassName="text-2xl font-bold text-indigo-600"
+                    sequentialAnimation={true}
+                  />
+                  <p className="text-xs text-gray-600 text-center">+ Years </p>
                 </motion.div>
 
                 {/* Stat 2: 1000+ Projects - large screen */}
@@ -192,8 +208,14 @@ export default function AboutUs() {
                   className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
                   variants={statItemVariants}
                 >
-                  <p className="text-2xl font-bold text-indigo-600">1000+</p>
-                  <p className="text-xs text-gray-600 text-center">Projects</p>
+                  <SlotCounter
+                    value={1000}
+                    duration={1.5}
+                    charClassName="text-2xl font-bold text-indigo-600"
+                    sequentialAnimation={true}
+                    padStartLen={3}
+                  />
+                  <p className="text-xs text-gray-600 text-center">+ Projects</p>
                 </motion.div>
 
                 {/* Stat 3: 100% Customer Satisfaction - large screen */}
@@ -201,9 +223,15 @@ export default function AboutUs() {
                   className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
                   variants={statItemVariants}
                 >
-                  <p className="text-2xl font-bold text-indigo-600">100%</p>
+                  <SlotCounter
+                    value={100}
+                    duration={1.5}
+                    charClassName="text-2xl font-bold text-indigo-600"
+                    sequentialAnimation={true}
+                    padStartLen={3}
+                  />
                   <p className="text-xs text-gray-600 text-center">
-                    Satisfaction
+                  %  Satisfaction
                   </p>
                 </motion.div>
               </motion.div>
