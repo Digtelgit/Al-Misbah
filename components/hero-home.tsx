@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import { Slide } from "react-slideshow-image";
 import Image from "next/image";
 import "react-slideshow-image/dist/styles.css";
+import React from "react";
 
 const slides = [
   {
@@ -53,38 +54,23 @@ const DecorativePattern = ({ className = "" }) => (
   </div>
 );
 
-// Diamond-shaped indicator component with more sophisticated styling
-const DiamondIndicator = ({ active, onClick }) => (
-  <div 
-    className={`
-      diamond-indicator 
-      transform rotate-45 
-      transition-all duration-300 ease-in-out 
-      ${active 
-        ? 'bg-white scale-125 shadow-lg border-2 border-blue-300' 
-        : 'bg-white/50 hover:bg-white/75 scale-100'
-      }`} 
-    onClick={onClick}
-  />
-);
-
 export default function HeroHome() {
   return (
     <section
       className={`relative bg-white text-gray-900 overflow-hidden ${poppins.variable}`}
     >
-      <DecorativePattern className="top-0 left-2 w-96 h-96 -translate-y-2/4 -translate-x-1/3" />
+      <DecorativePattern className="top-0 left-2 w-96 h-screen -translate-y-2/4 -translate-x-1/3 hidden md:block" />
 
       <div className="relative w-full">
-        <div className="py-12 md:py-20">
-          <div className="pb-12 text-center md:pb-16">
+        <div className="py-8 md:py-20">
+          <div className="pb-8 md:pb-16 text-center">
             <h1
-              className="font-sans text-blue-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-extrabold tracking-tight leading-none px-2"
+              className="font-sans text-blue-700 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-none px-4"
               data-aos="fade-up"
             >
-              Turnkey Solutions for <br /> the Built Environment
+              Turnkey Solutions for <br className="hidden sm:block" /> the Built Environment
             </h1>
-            <div className="mx-auto max-w-3xl">
+            <div className="mx-auto max-w-3xl px-4">
               <p
                 className="mt-3 md:mt-4 text-base sm:text-lg text-gray-700 md:text-xl font-sans"
                 data-aos="fade-up"
@@ -115,17 +101,17 @@ export default function HeroHome() {
             </div>
           </div>
 
-          {/* Full-screen Slideshow Section */}
-          <div className="relative w-full h-screen overflow-hidden shadow-2xl">
+          {/* Responsive Slideshow Section */}
+          <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-screen overflow-hidden shadow-2xl">
             <Slide
               duration={5000}
               transitionDuration={800}
               autoplay
               infinite
-              indicators={true}
-              arrows={true}
+              indicators
+              arrows
               prevArrow={
-                <div className="absolute z-10 left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 rounded-full cursor-pointer hover:bg-white/50 transition-all">
+                <div className="absolute z-10 left-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white/30 rounded-full cursor-pointer hover:bg-white/50 transition-all">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -142,7 +128,7 @@ export default function HeroHome() {
                 </div>
               }
               nextArrow={
-                <div className="absolute z-10 right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/30 backdrop-blur-sm rounded-full cursor-pointer hover:bg-white/50 transition-all">
+                <div className="absolute z-10 right-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white/30 backdrop-blur-sm rounded-full cursor-pointer hover:bg-white/50 transition-all">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -158,19 +144,11 @@ export default function HeroHome() {
                   </svg>
                 </div>
               }
-              customIndicator={(index, active, onChange) => (
-                <DiamondIndicator 
-                  active={active} 
-                  key={index} 
-                  onClick={() => onChange(index)}
-                />
-              )}
-              indicatorClassName="diamond-indicator-container"
             >
               {slides.map((slide, index) => (
                 <div
                   key={index}
-                  className="relative w-full h-screen"
+                  className="relative w-full h-[50vh] sm:h-[60vh] md:h-screen"
                 >
                   <Image
                     src={slide.image}
@@ -180,9 +158,9 @@ export default function HeroHome() {
                     priority={index === 0}
                     sizes="100vw"
                   />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-center pb-16">
-                    <div className="bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg">
-                      <h2 className="text-white text-base sm:text-xl md:text-2xl font-extralight tracking-wide opacity-90">
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-center pb-8 md:pb-16">
+                    <div className="bg-black/30 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2 rounded-lg">
+                      <h2 className="text-white text-sm sm:text-base md:text-xl font-extralight tracking-wide opacity-90">
                         {slide.text}
                       </h2>
                     </div>

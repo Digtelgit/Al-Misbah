@@ -1,9 +1,47 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import AboutUsImage from "@/public/images/aboutUs.jpg";
-import SlotCounter from "react-slot-counter";
+
+// Custom Counter Component
+const AnimatedCounter = ({ 
+  value, 
+  duration = 1.5, 
+  className = "",
+  suffix = "" 
+}: {
+  value: number;
+  duration?: number;
+  className?: string;
+  suffix?: string;
+}) => {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
+      setDisplayValue(Math.floor(progress * value));
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  }, [value, duration]);
+
+  return (
+    <div className={`flex items-center justify-center ${className}`}>
+      <span className="text-2xl font-bold text-indigo-600">
+        {displayValue}{suffix}
+      </span>
+    </div>
+  );
+};
 
 export default function AboutUs() {
   // Animation variants
@@ -53,18 +91,15 @@ export default function AboutUs() {
 
   return (
     <motion.section
-      className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20 md:py-28 overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 md:py-24 overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      {/* Background decorative elements - made responsive */}
+      {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-48 md:w-64 h-48 md:h-64 bg-indigo-50 rounded-full -mr-24 md:-mr-32 -mt-24 md:-mt-32 opacity-70"></div>
       <div className="absolute bottom-0 left-0 w-72 md:w-96 h-72 md:h-96 bg-indigo-50 rounded-full -ml-36 md:-ml-48 -mb-36 md:-mb-48 opacity-70"></div>
-
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
@@ -109,13 +144,13 @@ export default function AboutUs() {
             </motion.div>
           </motion.div>
 
-          {/* Image Side with improved responsive stats alignment */}
+          {/* Image Side */}
           <motion.div
             className="w-full lg:w-1/2 relative mt-10 lg:mt-0"
             variants={imageVariants}
           >
             <div className="relative z-10 mx-4 sm:mx-8 lg:mx-0">
-              {/* Decorative frame - reduced dimensions on smaller screens */}
+              {/* Image with decorative frame */}
               <div className="absolute -inset-2 sm:-inset-3 md:-inset-4 border-2 border-indigo-200 rounded-xl"></div>
 
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
@@ -131,113 +166,98 @@ export default function AboutUs() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/20 to-transparent opacity-60"></div>
               </div>
 
-              {/* Responsive approach for stats positioning */}
-              {/* On small screens (mobile), stats appear as a row under the image */}
+              {/* Mobile Stats (Small Screens) */}
               <motion.div
-                className="flex lg:hidden justify-center gap-2 sm:gap-4 mt-4"
+                className="flex lg:hidden justify-center gap-4 sm:gap-6 mt-4"
                 variants={statsVariants}
               >
-                {/* Stat 1: 20+ Years - small screen */}
+                {/* Years Stat */}
                 <motion.div
-                  className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
+                  className="bg-white p-3 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-32"
                   variants={statItemVariants}
                 >
-                  <SlotCounter
-                    value={20}
-                    duration={1.5}
-                    charClassName="text-2xl font-bold text-indigo-600"
-                    sequentialAnimation={true}
+                  <AnimatedCounter 
+                    value={20} 
+                    suffix="+" 
+                    className="text-2xl font-bold text-indigo-600" 
                   />
-                  <p className="text-xs text-gray-600 text-center">Years</p>
+                  <p className="text-xs text-gray-600 text-center mt-1">Years</p>
                 </motion.div>
 
-                {/* Stat 2: 1000+ Projects - small screen */}
+                {/* Projects Stat */}
                 <motion.div
-                  className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
+                  className="bg-white p-3 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-32"
                   variants={statItemVariants}
                 >
-                  <SlotCounter
-                    value={1000}
-                    duration={1.5}
-                    charClassName="text-2xl font-bold text-indigo-600"
-                    sequentialAnimation={true}
-                    padStartLen={3}
+                  <AnimatedCounter 
+                    value={1000} 
+                    suffix="+" 
+                    className="text-2xl font-bold text-indigo-600" 
                   />
-                  <p className="text-xs text-gray-600 text-center">Projects</p>
+                  <p className="text-xs text-gray-600 text-center mt-1">Projects</p>
                 </motion.div>
 
-                {/* Stat 3: 100% Customer Satisfaction - small screen */}
+                {/* Satisfaction Stat */}
                 <motion.div
-                  className="bg-white p-2 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-28"
+                  className="bg-white p-3 rounded-lg shadow-lg flex flex-col items-center justify-center w-24 sm:w-32"
                   variants={statItemVariants}
                 >
-                  <SlotCounter
-                    value={100}
-                    duration={1.5}
-                    charClassName="text-2xl font-bold text-indigo-600"
-                    sequentialAnimation={true}
-                    padStartLen={3}
+                  <AnimatedCounter 
+                    value={100} 
+                    suffix="%" 
+                    className="text-2xl font-bold text-indigo-600" 
                   />
-                  <p className="text-xs text-gray-600 text-center">
-                    Satisfaction
-                  </p>
+                  <p className="text-xs text-gray-600 text-center mt-1">Satisfaction</p>
                 </motion.div>
               </motion.div>
 
-              {/* On larger screens (desktop), stats appear vertically on the right side */}
+              {/* Desktop Stats (Large Screens) */}
               <motion.div
                 className="hidden lg:flex flex-col absolute top-0 -right-12 h-full py-8 justify-center gap-4"
                 variants={statsVariants}
               >
-                {/* Stat 1: 20+ Years - large screen */}
+                {/* Years Stat */}
                 <motion.div
                   className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
                   variants={statItemVariants}
                 >
-                  <SlotCounter
-                    value={20}
-                    duration={1.5}
-                    charClassName="text-2xl font-bold text-indigo-600"
-                    sequentialAnimation={true}
+                  <AnimatedCounter 
+                    value={20} 
+                    suffix="+" 
+                    className="text-2xl font-bold text-indigo-600" 
                   />
-                  <p className="text-xs text-gray-600 text-center">+ Years </p>
+                  <p className="text-xs text-gray-600 text-center mt-1">Years</p>
                 </motion.div>
 
-                {/* Stat 2: 1000+ Projects - large screen */}
+                {/* Projects Stat */}
                 <motion.div
                   className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
                   variants={statItemVariants}
                 >
-                  <SlotCounter
-                    value={1000}
-                    duration={1.5}
-                    charClassName="text-2xl font-bold text-indigo-600"
-                    sequentialAnimation={true}
-                    padStartLen={3}
+                  <AnimatedCounter 
+                    value={1000} 
+                    suffix="+" 
+                    className="text-2xl font-bold text-indigo-600" 
                   />
-                  <p className="text-xs text-gray-600 text-center">+ Projects</p>
+                  <p className="text-xs text-gray-600 text-center mt-1">Projects</p>
                 </motion.div>
 
-                {/* Stat 3: 100% Customer Satisfaction - large screen */}
+                {/* Satisfaction Stat */}
                 <motion.div
                   className="bg-white p-3 rounded-lg shadow-xl flex flex-col items-center justify-center w-24"
                   variants={statItemVariants}
                 >
-                  <SlotCounter
-                    value={100}
-                    duration={1.5}
-                    charClassName="text-2xl font-bold text-indigo-600"
-                    sequentialAnimation={true}
-                    padStartLen={3}
+                  <AnimatedCounter 
+                    value={100} 
+                    suffix="%" 
+                    className="text-2xl font-bold text-indigo-600" 
                   />
-                  <p className="text-xs text-gray-600 text-center">
-                  %  Satisfaction
-                  </p>
+                  <p className="text-xs text-gray-600 text-center mt-1">Satisfaction</p>
                 </motion.div>
               </motion.div>
             </div>
 
-            {/* Background decorative elements - made responsive */}
+            {/* Additional decorative elements */}
             <div className="absolute top-1/2 -right-8 sm:-right-10 md:-right-12 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-indigo-100 rounded-full"></div>
             <div className="absolute -top-4 sm:-top-5 md:-top-6 left-4 sm:left-5 md:left-6 w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 bg-indigo-100 rounded-full"></div>
           </motion.div>

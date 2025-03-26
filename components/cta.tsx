@@ -25,9 +25,15 @@ export default function Cta() {
             >
               Transform Your Space with Stunning Interior Designs
             </h2>
-            <p className="text-gray-600 pb-6" data-aos="fade-up" data-aos-delay={200}>
-              Elevate your Builiding , home and office aesthetics with our bespoke interior design solutions.
+            <p
+              className="text-gray-600 pb-6"
+              data-aos="fade-up"
+              data-aos-delay={200}
+            >
+              Elevate your building, home, and office aesthetics with our
+              bespoke interior design solutions.
             </p>
+
             <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
               <div data-aos="fade-up" data-aos-delay={400}>
                 <a

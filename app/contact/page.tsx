@@ -69,20 +69,18 @@ export default function ContactUs() {
                   </div>
                 </form>
                 <div className="mt-12">
-                  <p className="text-gray-300" data-aos="fade-up" data-aos-delay={600}>
-                    Or contact us directly at:
-                  </p>
+                
                   <p className="text-indigo-200 mt-2" data-aos="fade-up" data-aos-delay={700}>
                     <a href="mailto:contact@almisbah.com" className="hover:text-indigo-400">
                       contact@almisbah.com
                     </a>
                   </p>
                   <p className="text-gray-300 mt-2" data-aos="fade-up" data-aos-delay={800}>
-                    Phone: <span className="text-indigo-200">+1 (234) 567-890</span>
+                    <span className="text-indigo-200">+1 (234) 567-890</span>
                   </p>
                   {/* Office Address */}
                   <p className="text-gray-300 mt-2" data-aos="fade-up" data-aos-delay={900}>
-                    Address:{" "}
+                   
                     <span className="text-indigo-200">
                       Office 904, Saheel 2, Al Nahda 1, Dubai, United Arab Emirates
                     </span>
